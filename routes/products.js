@@ -2,7 +2,7 @@ const express = require('express');
 const Router = express.Router();
 const mysqlConnection = require('../db');
 
-Router.get('/', (req, res) => {
+Router.get('/products', (req, res) => {
 
 mysqlConnection.query('SELECT * from product', (err, rows, fields) =>{
     if(!err){
