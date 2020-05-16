@@ -1,12 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+var express = require('express');
+var bodyParser = require('body-parser');
 
-const ProductsRoutes = require('./routes/products');
+var ProductsRoutes = require('./routes/products');
 
 
 var app = express();
 app.use(bodyParser.json());
 
-app.use('/product', ProductsRoutes);
+app.get('/products', ProductsRoutes);
 
-app.listen(4000);
+app.listen(3001);
