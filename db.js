@@ -19,9 +19,9 @@
 // });
  
 // module.exports = mysqlConnection;   
-const mysql = require('mysql');
+var mysql = require('mysql');
 
-var mysqlConnection = mysql.createConnection({
+var connection = mysql.createPool({
     connectionLimit: 10,
     host: '198.71.225.62',
     user: 'NepalUser',
@@ -29,16 +29,14 @@ var mysqlConnection = mysql.createConnection({
     database: 'NepalDB'
 
 });
+connection.getConnection((err) => {
+    if(!err){
 
-mysqlConnection.connect((err) => { 
-        if(!err){
-    
-            console.log("connected");
-        }
-        else{
-            console.log("connection failed");
-        }
+        console.log("connected");
+    }
+    else{
+        console.log("connection failed");
+    }
+});
 
-    });
-
-module.exports = mysqlConnection;
+module.exports = connection;
