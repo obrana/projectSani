@@ -37,6 +37,10 @@ export default class allproducts extends React.Component {
                               <th>Name</th>
                               <th>Price</th>
                               <th>Details</th>
+                              <th>Metal</th>
+                              <th>Category</th>
+                              <th>Gender</th>
+                              <th>Unit</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -45,6 +49,11 @@ export default class allproducts extends React.Component {
                                 <td>{product.name}</td>
                                 <td>{product.price}</td>
                                 <td>{product.details}</td>
+                                <td>{product.metal}</td>
+                                <td>{product.category}</td>
+                                <td>{product.gender}</td>
+                                <td>{product.unit}</td>
+
                             </tr>
                             )}
                       </tbody>
