@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mysqlConnection = require('./db');
+
 const ProductsRoutes = require('./routes/products');
 
 
 var app = express();
 app.use(bodyParser.json());
 
-app.use('/products', ProductsRoutes);
+app.use('/product', ProductsRoutes);
 
-
-app.listen(3000);
+app.listen(4000);
