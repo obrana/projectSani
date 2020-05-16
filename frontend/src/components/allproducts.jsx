@@ -1,12 +1,23 @@
 import React, { Component } from "react";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
 export default class allproducts extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            products: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
+  componentDidMount() {
+    let self = this;
+    fetch(`/products`, {
+      method: "GET",
+    })
+      .then(function (response) {
+        if (response.status >= 400) {
+          throw new Error("Bad response from server");
         }
+
     }
     componentDidMount() {
      let self =this;
@@ -63,4 +74,5 @@ export default class allproducts extends React.Component {
       );
       }
     
+
 }
