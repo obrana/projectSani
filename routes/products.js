@@ -1,10 +1,10 @@
 const express = require('express');
 const Router = express.Router();
-const mysqlConnection = require('../db');
+const mysqlConnection = require('../db'); 
 
-Router.get('/products', (req, res) => {
 
-mysqlConnection.query('SELECT * from product', (err, rows, fields) =>{
+Router.get('/', (req, res) => {
+mysqlConnection.query('SELECT * FROM NepalDB.products', (err, rows, fields) =>{
     if(!err){
         res.send(rows);
     }
@@ -12,7 +12,5 @@ mysqlConnection.query('SELECT * from product', (err, rows, fields) =>{
         console.log(err);
     }
 })
-
-})
-
+});
 module.exports = Router; 
