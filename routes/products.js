@@ -8,7 +8,7 @@ Router.get('/products', function (req, res){
 connection.query(query, function (error, results) 
  {
   if(error) throw error;
-    res.json(results);
+    res.send(JSON.stringify(results));
 })
 });
 
