@@ -1,16 +1,24 @@
-const express = require('express');
-const Router = express.Router();
-const mysqlConnection = require('../db'); 
+const express = require("express");
+const router = express.Router();
+const mysqlConnection = require("../db");
 
-
-Router.get('/', (req, res) => {
-mysqlConnection.query('SELECT * FROM NepalDB.products', (err, rows, fields) =>{
-    if(!err){
-        res.send(rows);
-    }
-    else{
-        console.log(err);
-    }
-})
+// Get all products
+router.get("/products", function (req, res) {
+  var query = "SELECT * FROM products";
+  connection.query(query, function (error, results) {
+    if (error) throw error;
+    res.json(results);
+  });
 });
-module.exports = Router; 
+
+// Router.get('/', (req, res) => {
+// mysqlConnection.query('SELECT * FROM NepalDB.products', (err, rows, fields) =>{
+//     if(!err){
+//         res.send(rows);
+//     }
+//     else{
+//         console.log(err);
+//     }
+// })
+// });
+module.exports = router;
