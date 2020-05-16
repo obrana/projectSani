@@ -8,17 +8,7 @@ export default class allproducts extends React.Component {
       products: [],
     };
   }
-  componentDidMount() {
-    let self = this;
-    fetch(`/products`, {
-      method: "GET",
-    })
-      .then(function (response) {
-        if (response.status >= 400) {
-          throw new Error("Bad response from server");
-        }
 
-    }
     componentDidMount() {
      let self =this;
         fetch(`/products`, {
