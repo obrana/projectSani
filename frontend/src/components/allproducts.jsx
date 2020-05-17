@@ -44,7 +44,7 @@ export default class allproducts extends React.Component {
                                 <Card.Text>
                                     {product.details}
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <Button variant="primary">Find more</Button>
                             </Card.Body>
                         </Card>
                     );
