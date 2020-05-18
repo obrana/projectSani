@@ -7,7 +7,6 @@
 
 .footerlink .nav-link {
   padding: 15px 25px 0px 0px !important;
-  color: #fd5a32 !important;
 }
 ul.quicklinks {
   list-style: none;
@@ -15,9 +14,8 @@ ul.quicklinks {
 }
 ul.quicklinks li a {
   color: #000 !important;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9em;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 100%;
   font-family: "Open Sans", "Century Gothic", sans-serif;
 }
@@ -27,7 +25,10 @@ ul.quicklinks li a {
 }
 .copyright p {
   color: #000 !important;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
 }
 .lowrow {
   margin-top: 10px;
