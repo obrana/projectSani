@@ -11,7 +11,7 @@ export default class Footer extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-4">
-              <h4>Customer Service</h4>
+              <h5>Customer Service</h5>
               <ul className="quicklinks">
                 <li>
                   <Link to="/">Home</Link>
@@ -25,7 +25,7 @@ export default class Footer extends Component {
               </ul>
             </div>
             <div className="col-md-4">
-              <h4>Company</h4>
+              <h5>Company</h5>
               <ul className="quicklinks">
                 <li>
                   <Link to="/">Home</Link>
@@ -39,10 +39,10 @@ export default class Footer extends Component {
               </ul>
             </div>
             <div className="col-md-4 footerlink">
-              <h4>Find Us On</h4>
+              <h5>Find Us On</h5>
               <Nav>
                 <Nav.Link href="#">
-                  <i class="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"></i>
                 </Nav.Link>
                 <Nav.Link href="#">
                   <i class="fab fa-twitter"></i>
@@ -59,7 +59,7 @@ export default class Footer extends Component {
         </div>
         <div className="row lowrow">
           <div className="col-md-12 copyright">
-            <p>© 2019. All Rights Reserved.</p>
+            <p>© 2020. All Rights Reserved.</p>
           </div>
         </div>
       </div>
