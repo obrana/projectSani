@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-// import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
 import "./home.css";
 
@@ -67,6 +67,9 @@ export default class Home extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+        <Router>
+          <Footer />
+        </Router>
       </main>
     );
   }
