@@ -8,6 +8,7 @@
   border: 1px solid palevioletred !important;
   border-radius: 0px !important;
   padding: 5px 25px;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
 }
 .card-group > .card {
   border: 0 none;
@@ -16,5 +17,10 @@
 .card-title {
   font-family: "Open Sans", "Century Gothic", sans-serif;
   font-size: 14px;
+  text-transform: uppercase;
+}
+.big-title {
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 18px;
   text-transform: uppercase;
 }

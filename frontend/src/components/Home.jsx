@@ -49,7 +49,7 @@ export default class Home extends Component {
           </Carousel>
           <Card className="text-center sectionOne">
             <Card.Body>
-              <Card.Title>Explore the designs</Card.Title>
+              <Card.Title className="big-title">Explore the designs</Card.Title>
               <Card.Text>
                 We look forward to welcoming you in store soon.
               </Card.Text>
