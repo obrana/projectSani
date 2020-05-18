@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 import "./home.css";
 
 export default class Home extends Component {
@@ -45,6 +47,35 @@ export default class Home extends Component {
               />
             </Carousel.Item>
           </Carousel>
+          <Card className="text-center sectionOne">
+            <Card.Body>
+              <Card.Title>Explore the designs</Card.Title>
+              <Card.Text>
+                We look forward to welcoming you in store soon.
+              </Card.Text>
+              <Button variant="customButton">Shop Now</Button>
+            </Card.Body>
+          </Card>
+          <CardGroup>
+            <Card>
+              <Card.Img variant="top" src="assets/rings.jpg" />
+              <Card.Body>
+                <Card.Title>Ring</Card.Title>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Img variant="top" src="assets/earrings.jpg" />
+              <Card.Body>
+                <Card.Title>Earring</Card.Title>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Img variant="top" src="assets/necklace.jpg" />
+              <Card.Body>
+                <Card.Title>Necklace</Card.Title>
+              </Card.Body>
+            </Card>
+          </CardGroup>
         </Container>
 
         <Router>
