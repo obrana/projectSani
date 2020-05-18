@@ -1,8 +1,9 @@
 .footer {
-  background: #e8e8e8;
+  background: #fff;
   color: #000;
   padding: 30px 0 0;
   text-align: left;
+  border-top: 1px solid #eee;
 }
 
 .footerlink .nav-link {

@@ -6,7 +6,7 @@ nav.navbar,
   border-radius: 0px;
   transition: all 0.2s;
   z-index: 999;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   padding: 0.5% 5.5%;
   /* box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25); */
   font-family: "Open Sans", "Century Gothic", sans-serif;
@@ -20,6 +20,10 @@ nav.navbar,
 }
 .fab,
 .fas {
+  color: palevioletred;
+}
+.navbar-expand-lg .navbar-collapse {
+  margin: 0 3%;
 }
 .nav-link:hover {
   color: #000 !important;
@@ -45,6 +49,15 @@ nav.navbar,
 
 .navbar-toggler-icon {
   height: 2em;
+}
+.topBar {
+  width: 100%;
+  background: palevioletred;
+}
+.topBar p {
+  padding: 5px 0px 5px;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .logo {
