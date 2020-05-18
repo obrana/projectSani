@@ -7,13 +7,16 @@ import { Link, animateScroll as scroll } from "react-scroll";
 export default class CustomNavbar extends Component {
   render() {
     return (
-      <Container>
+      <main>
+        <div className="topBar">
+          <p>Free shipping for the orders above 1000DKK</p>
+        </div>
         <Navbar
           collapseOnSelect
           expand="lg"
           bg="dark"
           variant="dark"
-          fixed="top"
+          // fixed="top"
         >
           <div className="logo">
             <a onClick={() => scroll.scrollToTop()}>
@@ -54,41 +57,10 @@ export default class CustomNavbar extends Component {
                   My Account
                 </Link>
               </Nav.Link>
-
-              {/* <Nav.Link>
-                <i
-                  class="fas fa-phone-square-alt
-"
-                ></i>{" "}
-                0097714154259
-              </Nav.Link>
-
-              <div className="social">
-                <Nav.Link>
-                  <Link to="#">
-                    <i class="fab fa-facebook-f"></i>
-                  </Link>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="#">
-                    <i class="fab fa-twitter"></i>
-                  </Link>{" "}
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="#">
-                    <i class="fab fa-instagram"></i>
-                  </Link>{" "}
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="#">
-                    <i class="fab fa-linkedin"></i>
-                  </Link>{" "}
-                </Nav.Link>
-              </div> */}
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </Container>
+      </main>
     );
   }
 }
