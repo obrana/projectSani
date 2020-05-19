@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { auth } from "../firebase";
 import { UserContext } from "../providers/UserProvider";
 import { Link } from "@reach/router";
+import "./auth.css";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -31,19 +32,15 @@ const PasswordReset = () => {
       });
   };
   return (
-    <div className="mt-8">
-      <h1 className="text-xl text-center font-bold mb-3">
-        Reset your Password
-      </h1>
+    <div className="mt-8 login-credentials">
       <div className="border border-blue-300 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         <form action="">
+          <h1 className="customTitle">Reset your Password</h1>
           {emailHasBeenSent && (
-            <div className="py-3 bg-green-400 w-full text-white text-center mb-3">
-              An email has been sent to you!
-            </div>
+            <div className="alertText">An email has been sent to you!</div>
           )}
           {error !== null && (
-            <div className="py-3 bg-red-600 w-full text-white text-center mb-3">
+            <div className="py-3 bg-red-600 w-full text-white text-center mb-3 alertText">
               {error}
             </div>
           )}
@@ -60,19 +57,16 @@ const PasswordReset = () => {
             className="mb-3 w-full px-1 py-2"
           />
           <button
-            className="w-full bg-blue-400 text-white py-3"
+            className="btn-customButton "
             onClick={(event) => {
               sendResetEmail(event);
             }}
           >
-            Send me a reset link
+            Reset Password
           </button>
         </form>
 
-        <Link
-          to="/"
-          className="my-2 text-blue-700 hover:text-blue-800 text-center block"
-        >
+        <Link to="/" className="my-2 text-blue-700  text-center block">
           &larr; Go Back
         </Link>
       </div>

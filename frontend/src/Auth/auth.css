@@ -1,17 +1,24 @@
 .login-credentials {
-  width: 50%;
+  width: 25%;
   text-align: center;
-  margin: auto;
+  margin: 5% auto;
+  background: #eee;
 }
-
-.sign-form {
+.dashboard {
+  width: 90%;
+  text-align: center;
+  margin: 5% auto;
+  background: #eee;
 }
 label,
 input {
   display: block;
   margin-bottom: 0.5rem;
-  text-align: center;
-  margin: auto;
+  text-align: left;
+  width: 100%;
+}
+.alertText {
+  color: #000 !important;
 }
 .btn-customButton {
   border: 1px solid palevioletred !important;
@@ -19,4 +26,13 @@ input {
   padding: 5px 25px;
   font-family: "Open Sans", "Century Gothic", sans-serif;
   background: #fff;
+  color: #000 !important;
+}
+h1.customTitle {
+  color: palevioletred;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 30px 0px;
 }

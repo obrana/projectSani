@@ -4,6 +4,9 @@
 .sectionOne {
   border: 0 none !important;
 }
+a {
+  color: palevioletred;
+}
 .btn-customButton {
   border: 1px solid palevioletred !important;
   border-radius: 0px !important;
