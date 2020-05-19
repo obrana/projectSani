@@ -29,7 +29,6 @@ const SignIn = () => {
 
   return (
     <div className="mt-8 login-credentials">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && (
           <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
@@ -37,6 +36,10 @@ const SignIn = () => {
           </div>
         )}
         <form className="">
+          <h1 className="customTitle">
+            Already a member? Login to your account
+          </h1>
+
           <label htmlFor="userEmail" className="block">
             Email:
           </label>
