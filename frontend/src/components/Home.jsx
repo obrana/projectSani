@@ -7,7 +7,19 @@ import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import { Fade } from "react-slideshow-image";
 import "./home.css";
+
+const images = ["assets/banner-1.jpg", "assets/banner-2.jpg", "assets/banner-3.jpg", "assets/banner-4.jpg"];
+const properties = {
+  duration: 2000,
+  transitionDuration: 4000,
+  infinite: true,
+  indicators: true,
+  onChange: (oldIndex, newIndex) => {
+    console.log(`slide transition from ${oldIndex} to ${newIndex}`);
+  }
+};
 
 export default class Home extends Component {
   render() {
@@ -17,7 +29,22 @@ export default class Home extends Component {
           <CustomNavbar />
         </Router>
         <Container>
-          <Carousel>
+
+        <Fade {...properties}>
+          <div className="image-container">
+            <img src={images[0]} />
+          </div>
+          <div className="image-container">
+            <img src={images[1]} />
+          </div>
+          <div className="image-container">
+            <img src={images[2]} />
+          </div>
+          <div className="image-container">
+            <img src={images[3]} />
+          </div>
+        </Fade>
+          {/* <Carousel>
             <Carousel.Item>
               <img
                 className="d-block w-100"
@@ -46,7 +73,7 @@ export default class Home extends Component {
                 alt="Third slide"
               />
             </Carousel.Item>
-          </Carousel>
+          </Carousel> */}
           <Card className="text-center sectionOne">
             <Card.Body>
               <Card.Title className="big-title">Explore the designs</Card.Title>

@@ -24,3 +24,9 @@
   font-size: 18px;
   text-transform: uppercase;
 }
+.react-slideshow-container .nav {
+  display: none;
+}
+.react-slideshow-container + div.indicators {
+  display: none;
+}
