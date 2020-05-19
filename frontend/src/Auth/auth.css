@@ -1,0 +1,22 @@
+.login-credentials {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.sign-form {
+}
+label,
+input {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  margin: auto;
+}
+.btn-customButton {
+  border: 1px solid palevioletred !important;
+  border-radius: 0px !important;
+  padding: 5px 25px;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  background: #fff;
+}

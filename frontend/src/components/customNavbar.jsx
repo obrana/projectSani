@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Nav, Image, Container } from "react-bootstrap";
 
 import "./customNavbar.css";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-router-dom";
 
 export default class CustomNavbar extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class CustomNavbar extends Component {
           // fixed="top"
         >
           <div className="logo">
-            <a onClick={() => scroll.scrollToTop()}>
+            <a>
               <Image src="assets/logo.png" class="img-fluid" />
             </a>
           </div>
@@ -27,35 +27,25 @@ export default class CustomNavbar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <Nav.Link>
-                <Link to="profile" smooth={true} duration={1000}>
-                  Jewelry
-                </Link>{" "}
+                <Link to="profile">Jewelry</Link>{" "}
               </Nav.Link>
               <Nav.Link>
-                <Link to="processA" smooth={true} duration={1000}>
-                  Love & Engagement
-                </Link>{" "}
+                <Link to="processA">Love & Engagement</Link>{" "}
               </Nav.Link>
               <Nav.Link>
-                <Link to="projects" smooth={true} duration={1000}>
-                  Gifts
-                </Link>{" "}
+                <Link to="projects">Gifts</Link>{" "}
               </Nav.Link>
             </Nav>
-            <Navbar.Brand onClick={() => scroll.scrollToTop()}>
+            <Navbar.Brand>
               <Image src="assets/logo.png" />
             </Navbar.Brand>
 
             <Nav>
               <Nav.Link>
-                <Link to="collab" smooth={true} duration={1000}>
-                  Contact Us
-                </Link>
+                <Link to="collab">Contact Us</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="collab" smooth={true} duration={1000}>
-                  My Account
-                </Link>
+                <Link to="/SignUp">My Account</Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
