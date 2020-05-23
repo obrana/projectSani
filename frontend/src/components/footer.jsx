@@ -56,10 +56,10 @@ export default class Footer extends Component {
               </Nav>
             </div>
           </div>
-        </div>
-        <div className="row lowrow">
-          <div className="col-md-12 copyright">
-            <p>© 2020. All Rights Reserved.</p>
+          <div className="row lowrow">
+            <div className="col-md-12 copyright">
+              <p>© 2020. All Rights Reserved.</p>
+            </div>
           </div>
         </div>
       </div>
