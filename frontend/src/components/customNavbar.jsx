@@ -52,9 +52,10 @@ export default class CustomNavbar extends Component {
               <Nav.Link>
                 <Link to="collab">Contact Us</Link>
               </Nav.Link>
-              <Nav.Link>
-                <Link to="/SignUp">My Account</Link>
-              </Nav.Link>
+              <NavDropdown title="My Account" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/SignUp">Register</NavDropdown.Item>
+                <NavDropdown.Item href="/SignIn">Log IN</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -8,33 +8,33 @@ import SignIn from "./Auth/SignIn";
 import PasswordReset from "./Auth/PasswordReset";
 import ProfilePage from "./Auth/ProfilePage";
 import Home from "./components/Home";
-import Application from "./Auth/Application";
-import UserProvider from "./providers/UserProvider";
+// import Application from "./Auth/Application";
+// import UserProvider from "./providers/UserProvider";
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <div className="App">
-//           <Switch>
-//             <Route exact path="/" component={Home} />
-//             <Route exact path="/products" component={allproducts} />
-//             <Route exact path="/SignUp" component={SignUp} />
-//             <Route exact path="/SignIn" component={SignIn} />
-//             <Route exact path="/PasswordReset" component={PasswordReset} />
-//             <Route exact path="/ProfilePage" component={ProfilePage} />
-//           </Switch>
-//         </div>
-//       </BrowserRouter>
-//     );
-//   }
-// }
-function App() {
-  return (
-    <UserProvider>
-      <Application />
-    </UserProvider>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/products" component={allproducts} />
+            <Route exact path="/SignUp" component={SignUp} />
+            <Route exact path="/SignIn" component={SignIn} />
+            <Route exact path="/PasswordReset" component={PasswordReset} />
+            <Route exact path="/ProfilePage" component={ProfilePage} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
+// function App() {
+//   return (
+//     <UserProvider>
+//       <Application />
+//     </UserProvider>
+//   );
+// }
 
 export default App;
