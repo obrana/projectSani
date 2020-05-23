@@ -88,6 +88,9 @@ nav.navbar,
   top: 45px;
   border-radius: 0px !important;
 }
+.dropdown-menu a:hover:not(.active) {
+  background-color: #fff;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 991px) {

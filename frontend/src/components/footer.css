@@ -4,6 +4,7 @@
   padding: 30px 0 0;
   text-align: left;
   border-top: 1px solid #eee;
+  width: 100%;
 }
 
 .footerlink .nav-link {
@@ -23,6 +24,7 @@ ul.quicklinks li a {
 .copyright {
   text-align: center;
   padding: 12px 0px 0px !important;
+  width: 100%;
 }
 .copyright p {
   color: #000 !important;

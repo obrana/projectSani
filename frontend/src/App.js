@@ -8,23 +8,23 @@ import SignIn from "./Auth/SignIn";
 import PasswordReset from "./Auth/PasswordReset";
 import ProfilePage from "./Auth/ProfilePage";
 import Home from "./components/Home";
-import Application from "./Auth/Application";
-import UserProvider from "./providers/UserProvider";
-import newProducts from "./components/newProduct";
+import Contact from "./components/Contact";
+// import Application from "./Auth/Application";
+// import UserProvider from "./providers/UserProvider";
 
 class App extends Component {
   render() {
-    return (
+    return ( 
       <BrowserRouter>
         <div className="App">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/products" component={allproducts} />
-            <Route exact path="/new" component={newProducts} />
-            {/* <Route exact path="/SignUp" component={SignUp} />
+            <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/SignIn" component={SignIn} />
             <Route exact path="/PasswordReset" component={PasswordReset} />
-            <Route exact path="/ProfilePage" component={ProfilePage} /> */}
+            <Route exact path="/ProfilePage" component={ProfilePage} />
+            <Route exact path="/Contact" component={Contact} />
           </Switch>
         </div>
       </BrowserRouter>
