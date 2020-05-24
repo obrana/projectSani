@@ -13,44 +13,62 @@ connection.query(query, function (error, results)
 })
 });
 
-Router.delete('/products/:id', function (req, res) {
-    var id = req.params.id;
-    var query = `DELETE FROM products WHERE id = ${id}`;
-    connection.query(query, function (error, results) {  
-       if(!err)
-       res.send('Delete successfully');
-       else
-       console.log(err);
+Router.get('/products/:id', function (req, res, next){
+    
+    connection.query('SELECT * FROM products where id = ? ', req.params.id, function(err, rows, fields){
+        if(!err)
+        res.status(200).json({
+            status: 'success',
+            data: rows[0]
+        })
+        else
+        res.status(502).json([{
+            status:'failed',
+            errMsg: 'Error while performing query.'
+        }])
     });
 });
 
-// Router.post('/new',function (req, res){
-//     var name = req.body.name;
-//     var details = req.body.details;
-//     var category = req.body.category;
-//     var metal = req.body.metal;
-//     var gender = req.body.gender;
-//     var unit = req.body.unit;
-//     var price = req.body.price; 
+
+Router.delete('/products/:id', function (req, res, next){
     
+    connection.query('DELETE FROM products where id = ? ', req.params.id, function(err, rows, fields){
+        if(!err)
+        res.status(200).json({
+            status: 'successuflly deleted' ,
+            data: rows[0]
+        })
+        else
+        res.status(502).json([{
+            status:'failed',
+            errMsg: 'Error while performing query.'
+        }])
+    });
+});
 
-//      var query = `INSERT INTO products (name, price, details, metal, category, gender, unit, image) VALUES ("${name}", "${price}", ${details}"), "${metal}", "${category}", "${gender}", "${unit}", "${image}")`;
-//     // var query = `call create_procedure ('${product_name}', '${product_details}', '${categories}', '${metal}', '${product_images}', '${price}', '${unit}', '${gender}')`;
-//     connection.query(query, (err, rows) => {
-//         if (!err) {
-//             console.log(query, rows);
-//             res.send(rows);
-//         } else { 
-//             console.log(query, rows);
-//             throw err;
-//         }
-//     });
-// });
 
-Router.post('/new', function(req, res, next){
-    res.locals.connection.query(`insert into products(name,price) values (''+req.body.name+'',''+req.body.price+'')`, function (error, results, fields){
+Router.post('/new',function (req, res){
+    var id = req.body.id;
+    var name = req.body.name;
+    var details = req.body.details;
+    var category = req.body.category;
+    var metal = req.body.metal;
+    var gender = req.body.gender;
+    var unit = req.body.unit;
+    var price = req.body.price; 
+     
 
-    })
-})
+     var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}")`;
+    // var query = `call create_procedure ('${product_name}', '${product_details}', '${categories}', '${metal}', '${product_images}', '${price}', '${unit}', '${gender}')`;
+    connection.query(query, (err, rows) => {
+        if (!err) {
+            console.log(query, rows);
+            res.send(rows);
+        } else { 
+            console.log(query, rows);
+            throw err;
+        }
+    });
+});
 
 module.exports = Router;   
