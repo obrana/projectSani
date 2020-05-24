@@ -9,6 +9,7 @@ import PasswordReset from "./Auth/PasswordReset";
 import ProfilePage from "./Auth/ProfilePage";
 import Home from "./components/Home";
 import Contact from "./components/Contact";
+import newProduct from "./components/newProduct";
 // import Application from "./Auth/Application";
 // import UserProvider from "./providers/UserProvider";
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route exact path="/PasswordReset" component={PasswordReset} />
             <Route exact path="/ProfilePage" component={ProfilePage} />
             <Route exact path="/Contact" component={Contact} />
+            <Route exact path="/newProduct" component={newProduct} />
           </Switch>
         </div>
       </BrowserRouter>
