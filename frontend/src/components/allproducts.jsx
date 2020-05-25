@@ -31,14 +31,13 @@ export default class allproducts extends React.Component {
 
         return (
             <>
-         
                 <h4 className="smallHead">
                             Welcome to product page
               </h4>
                 {this.state.products.map((product, i) => {
                     return (
                         <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Img variant="top" src="assets/rings.jpg" />
                             <Card.Body>
                                 <Card.Title>{product.name}</Card.Title>
                                 <Card.Text>
