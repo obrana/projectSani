@@ -34,7 +34,7 @@ const ProfilePage = () => {
           </div>
         </div>
         <button
-          className="btn-customButton"
+          className="w-full py-3 bg-red-600 mt-4 text-white btn-customButton"
           onClick={() => {
             auth.signOut();
           }}

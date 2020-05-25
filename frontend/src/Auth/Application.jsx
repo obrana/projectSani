@@ -6,7 +6,6 @@ import UserProvider from "../providers/UserProvider";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
-
 function Application() {
   const user = useContext(UserContext);
   return user ? (
@@ -14,8 +13,9 @@ function Application() {
   ) : (
     <Router>
       <SignUp path="signUp" />
-      <SignIn path="/signIn" />
+      <SignIn path="/" />
       <PasswordReset path="passwordReset" />
+      <ProfilePage path="profilepage" />
     </Router>
   );
 }
