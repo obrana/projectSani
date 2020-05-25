@@ -69,7 +69,7 @@ const PasswordReset = () => {
             </button>
           </form>
 
-          <a href="/SignIn" className="my-2 text-blue-700  text-center block">
+          <a href="/" className="my-2 text-blue-700  text-center block">
             &larr; Go Back
           </a>
         </div>
