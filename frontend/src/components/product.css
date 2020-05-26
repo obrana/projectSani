@@ -20,3 +20,16 @@
   background-color: #8dca0a !important;
   color: #fff !important;
 }
+.jumbotron {
+  background-image: url("/assets/category-1.png");
+  height: 280px;
+  border-radius: 0px !important;
+}
+.jumbotron p {
+  margin: 30px 20px;
+  text-align: left;
+}
+.jumbotron h5 {
+  margin: 30px 20px;
+  text-align: left;
+}

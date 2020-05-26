@@ -26,8 +26,12 @@ nav.navbar,
   line-height: 100%;
   padding: 10px;
 }
-.dropdown-item:hover {
+.dropdown-item a:hover {
   color: palevioletred !important;
+  text-decoration: none !important;
+}
+.dropdown-item a {
+  color: #000 !important;
 }
 .fab,
 .fas {
