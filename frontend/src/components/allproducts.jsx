@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
+import Jumbotron from "react-bootstrap/Jumbotron";
+
 import { Button, Container } from "react-bootstrap";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
@@ -42,9 +44,10 @@ export default class allproducts extends React.Component {
         <CustomNavbar />
         <Container className="productPage">
           {/* <h4 className="smallHead">Welcome to product page</h4> */}
-          <Card>
-            <Card.Img variant="top" src="assets/banner-1.jpg" />
-          </Card>
+          <Jumbotron>
+            <h5>Rings</h5>
+            <p>Discover classic rings or create your own with us.</p>
+          </Jumbotron>
 
           {this.state.products.map((product, i) => {
             return (

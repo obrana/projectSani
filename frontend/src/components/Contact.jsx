@@ -14,7 +14,7 @@ export default class Contact extends Component {
 
         <Row className="contact-us">
           <Col md={12}>
-            <h4>Send Us a Message</h4>
+            <h4>Send a Message</h4>
             <Form>
               <Form.Group controlId="ControlInput">
                 <Form.Control type="email" placeholder="Name" />

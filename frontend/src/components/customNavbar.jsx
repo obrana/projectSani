@@ -39,11 +39,13 @@ export default class CustomNavbar extends Component {
                 <Link to="/products">Accessories</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/products">Gifts</Link>{" "}
+                <Link to="/products">Gift</Link>
               </Nav.Link>
             </Nav>
             <Navbar.Brand>
-              <Image src="assets/logo.png" />
+              <Link to="/">
+                <Image src="assets/logo.png" />
+              </Link>
             </Navbar.Brand>
 
             <Nav>
