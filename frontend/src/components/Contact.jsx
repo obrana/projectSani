@@ -36,7 +36,7 @@ export default class Contact extends Component {
                   rows="5"
                 />
               </Form.Group>
-              <Button className="btn-customButton" type="submit">
+              <Button className="btn-customBtn" type="submit">
                 Send
               </Button>
             </Form>

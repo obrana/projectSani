@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import { signInWithGoogle } from "../firebase";
 import { auth } from "../firebase";
 import "./auth.css";
@@ -67,7 +67,7 @@ const SignIn = () => {
               onChange={(event) => onChangeHandler(event)}
             />
             <button
-              className="bg-green-400 hover:bg-green-500 w-full py-2 text-white btn-customButton"
+              className="bg-green-400 hover:bg-green-500 w-full py-2 text-white btn-customBtn"
               onClick={(event) => {
                 signInWithEmailAndPasswordHandler(event, email, password);
               }}
@@ -77,7 +77,7 @@ const SignIn = () => {
           </form>
           <p className="text-center my-3">or</p>
           <button
-            className="bg-red-500 hover:bg-red-600 w-full py-2 text-white btn-customButton"
+            className="bg-red-500 hover:bg-red-600 w-full py-2 text-white btn-customBtn"
             onClick={() => {
               signInWithGoogle();
             }}
@@ -85,17 +85,26 @@ const SignIn = () => {
             Sign in with Google
           </button>
           <p className="text-center my-3">
-            Don't have an account?{" "}
-            <a href="signUp" className="text-blue-500 hover:text-blue-600">
+            Don't have an account?
+            <Link to="/signUp" className="text-blue-500 hover:text-blue-600">
               Sign up here
-            </a>{" "}
-            <br />{" "}
-            <a
+            </Link>
+            {/* <a href="signUp" className="text-blue-500 hover:text-blue-600">
+              Sign up here
+            </a> */}
+            <br />
+            <Link
+              to="/passwordReset"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              Forgot Password?
+            </Link>
+            {/* <a
               href="passwordReset"
               className="text-blue-500 hover:text-blue-600"
             >
               Forgot Password?
-            </a>
+            </a> */}
           </p>
         </div>
       </div>

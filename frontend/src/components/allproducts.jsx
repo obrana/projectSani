@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./product.css";
 
@@ -52,7 +53,7 @@ export default class allproducts extends React.Component {
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   {/* <Card.Text>{product.details}</Card.Text> */}
-                  <Button className="btn-customButton">Add to Cart</Button>
+                  {/* <Button className="btn-customButton">Add to Cart</Button> */}
                 </Card.Body>
               </Card>
             );

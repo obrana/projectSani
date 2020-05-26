@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 import { navigate } from "@reach/router";
 import { auth } from "../firebase";
+import { Link } from "react-router-dom";
+
 import "./auth.css";
 import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
@@ -34,7 +36,7 @@ const ProfilePage = () => {
           </div>
         </div>
         <button
-          className="w-full py-3 bg-red-600 mt-4 text-white btn-customButton"
+          className="w-full py-3 bg-red-600 mt-4 text-white btn-customBtn"
           onClick={() => {
             auth.signOut();
           }}
