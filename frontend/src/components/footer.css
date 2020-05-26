@@ -5,6 +5,7 @@
   text-align: left;
   border-top: 1px solid #eee;
   width: 100%;
+  clear: both;
 }
 
 .footerlink .nav-link {

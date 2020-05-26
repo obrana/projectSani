@@ -14,13 +14,13 @@ textarea.form-control {
   margin-top: 40px;
   border-radius: 0px !important;
 }
-.btn-customButton {
-  border: 1px solid palevioletred !important;
+.btn-customBtn {
+  border: 1px solid #2997ff !important;
   border-radius: 0px !important;
   padding: 5px 25px;
   font-family: "Open Sans", "Century Gothic", sans-serif;
-  background: #fff;
-  color: #000 !important;
+  background-color: #2997ff !important;
+  color: #fff !important;
 }
 .contact-us h4 {
   color: palevioletred;
