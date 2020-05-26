@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { auth } from "../firebase";
 import { UserContext } from "../providers/UserProvider";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import "./auth.css";
 import Footer from "../components/footer";
 import CustomNavbar from "../components/customNavbar";
@@ -60,7 +60,7 @@ const PasswordReset = () => {
               className="mb-3 w-full px-1 py-2"
             />
             <button
-              className="btn-customButton "
+              className="btn-customBtn "
               onClick={(event) => {
                 sendResetEmail(event);
               }}
@@ -68,10 +68,12 @@ const PasswordReset = () => {
               Reset Password
             </button>
           </form>
-
-          <a href="/" className="my-2 text-blue-700  text-center block">
+          <Link to="/signIn" className="text-blue-500 hover:text-blue-600">
+            Go Back
+          </Link>
+          {/* <a href="/" className="my-2 text-blue-700  text-center block">
             &larr; Go Back
-          </a>
+          </a> */}
         </div>
       </div>
       <Footer />

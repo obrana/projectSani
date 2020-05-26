@@ -18,30 +18,28 @@ export default class CustomNavbar extends Component {
           variant="dark"
           // fixed="top"
         >
-          <div className="logo">
-            <a>
-              <Image src="assets/logo.png" class="img-fluid" />
-            </a>
-          </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <NavDropdown title="Jewelry" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Rings</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Earrings</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Charms</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Necklaces & Pendants
+                <NavDropdown.Item>
+                  <Link to="/products">Rings</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.4">
-                  Bracelets
+                <NavDropdown.Item>
+                  <Link to="/products">Earrings</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/products">Bracelets</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/products">Necklaces & Pendants</Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link>
-                <Link to="processA">Accessories</Link>{" "}
+                <Link to="/products">Accessories</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to="projects">Gifts</Link>{" "}
+                <Link to="/products">Gifts</Link>{" "}
               </Nav.Link>
             </Nav>
             <Navbar.Brand>
@@ -53,8 +51,12 @@ export default class CustomNavbar extends Component {
                 <Link to="Contact">Contact Us</Link>
               </Nav.Link>
               <NavDropdown title="My Account" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/SignUp">Register</NavDropdown.Item>
-                <NavDropdown.Item href="/SignIn">Log IN</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/SignUp">Register</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/SignIn">LogIn</Link>
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

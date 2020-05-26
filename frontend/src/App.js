@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import allproducts from "./components/allproducts";
 import SignUp from "./Auth/SignUp";
@@ -15,7 +16,7 @@ import newProduct from "./components/newProduct";
 
 class App extends Component {
   render() {
-    return ( 
+    return (
       <BrowserRouter>
         <div className="App">
           <Switch>

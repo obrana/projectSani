@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "@reach/router";
+import { Link } from "react-router-dom";
 import { auth, signInWithGoogle, generateUserDocument } from "../firebase";
 import "./auth.css";
 import Footer from "../components/footer";
@@ -92,7 +92,7 @@ const SignUp = () => {
             />
 
             <button
-              className="btn-customButton"
+              className="btn-customBtn"
               onClick={(event) => {
                 createUserWithEmailAndPasswordHandler(event, email, password);
               }}
@@ -109,15 +109,18 @@ const SignUp = () => {
                 console.error("Error signing in with Google", error);
               }
             }}
-            className="btn-customButton"
+            className="btn-customBtn"
           >
             Sign In with Google
           </button>
           <p className="text-center my-3">
-            Already have an account?{" "}
-            <a href="/signIn" className="text-blue-500 hover:text-blue-600">
+            Already have an account?
+            <Link to="/signIn" className="text-blue-500 hover:text-blue-600">
               Sign in here
-            </a>{" "}
+            </Link>
+            {/* <a href="/signIn" className="text-blue-500 hover:text-blue-600">
+              Sign in here
+            </a>{" "} */}
           </p>
         </div>
       </div>
