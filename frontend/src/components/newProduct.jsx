@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Redirect } from "react-router-dom";
+
 
 class newProduct extends Component {
   constructor(props) {
@@ -7,88 +7,94 @@ class newProduct extends Component {
     this.state = {
       name: "",
       details: "",
-      price: "",
+      price: ""
     };
     this.myChangeHandler = this.myChangeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSubmit= (event) => {
     event.preventDefault();
-
-    var data = {
-      name: this.state.name,
-      details: this.state.details,
-      price: this.state.price,
-    };
+ 
+    var data= new FormData();
+  data.append("name", this.state.name);
+  data.append("price", this.state.price);
+  data.append("details", this.state.details);
+ 
 
     fetch("/new", {
       method: "POST",
-      body: JSON.stringify(data),
+      headers: {
+          'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(this.state)
     })
-      .then((response) => response.data)
+      .then(response => response.json())
+      .then(data => {
+        console.log('success:', data);
+      }) 
       .catch(function (err) {
         console.log(err);
       })
-      .then((req) => {
+      .then(req => {
         this.props.history.push("/products");
       });
   }
 
   myChangeHandler(event) {
     // event.preventDefault();
-    const name = event.target.name;
-    const value = event.target.value;
+    let nam = event.target.name;
+    let val = event.target.value;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [nam]: val });
   }
 
   render() {
+  
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} method="POST">
           <div className="well">
             <h2>Add a Product</h2>
           </div>
           <div className="form-group">
-            Name
+            Name: {" "}
             <input
               type="text"
               onChange={this.myChangeHandler}
-              value={this.state.name}
               name="name"
+              value={this.state.name}
               className="form-control"
               placeholder="Name"
               required={true}
             />
           </div>
           <div className="form-group">
-            Description
-            <input
-              type="text"
-              onChange={this.myChangeHandler}
-              name="details"
-              className="form-control"
-              value={this.state.details}
-              placeholder="Description"
-              required={true}
-            />
-          </div>
-          <div className="form-group">
-            Product Prices
+            Product Prices: {" "}
             <input
               type="text"
               onChange={this.myChangeHandler}
               name="price"
+            
               className="form-control"
-              value={this.state.price}
               placeholder="Product Prices"
               required={true}
             />
           </div>
 
+          <div className="form-group">
+            Description: {" "}
+            <input
+              type="text"
+              onChange={this.myChangeHandler}
+              name="details"
+            
+              className="form-control"
+              placeholder="Description"
+              required={true}
+            />
+          </div>
+    
           <div className="form-group">
             <button type="submit" className="homebtn">
               Submit

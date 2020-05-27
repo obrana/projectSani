@@ -47,7 +47,7 @@ Router.delete('/products/:id', function (req, res, next){
 });
 
 
-Router.post('/new',function (req, res){
+Router.post('/new', (req, res) => {
     var id = req.body.id;
     var name = req.body.name;
     var details = req.body.details;
@@ -60,12 +60,14 @@ Router.post('/new',function (req, res){
 
      var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}")`;
     // var query = `call create_procedure ('${product_name}', '${product_details}', '${categories}', '${metal}', '${product_images}', '${price}', '${unit}', '${gender}')`;
-    connection.query(query, (err, rows) => {
+   connection.query(query, (err, rows) => {
         if (!err) {
             console.log(query, rows);
             res.send(rows);
+
         } else { 
-            console.log(query, rows);
+            console.log('record inserted');
+            res.redirect('/products')
             throw err;
         }
     });
