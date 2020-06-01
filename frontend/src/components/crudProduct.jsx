@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
-import { Button, Container } from "react-bootstrap";
-
+import CustomNavbar from "../components/customNavbar";
+import Footer from "../components/footer";
+import { Button, Container, ButtonToolbar } from "react-bootstrap";
+import NewProduct from '../components/newProduct';
+import EditProduct from '../components/editProduct';
 
 
 
@@ -12,6 +14,9 @@ export default class CrudProduct extends React.Component {
         super(props);
         this.state = {
             products: [],
+            id: "",
+            addModalShow: false,
+            editModalShow: false
         };
     }
 
@@ -33,10 +38,29 @@ export default class CrudProduct extends React.Component {
                 console.log("caught it!", err);
             });
     }
+
+
+    deleteProduct(proId) {
+        if (window.confirm('Are You sure')) {
+            fetch('/delete/' + proId, {
+                method: 'DELETE',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+
+        }
+    }
+
     render() {
+        const {pid, pname } =this.state;
+        let addModalClose = () => this.setState({ addModalShow: false });
+        let editModalClose = () => this.setState({editModalShow: false});
+
         return (
             <main>
-
+                <CustomNavbar />
                 <Container className="crudProduct">
 
                     <div className="container">
@@ -56,28 +80,53 @@ export default class CrudProduct extends React.Component {
                                 </thead>
                                 <tbody>
                                     {this.state.products.map((product) => {
-                                        return(
+                                        return (
                                             <tr>
-                                            <td>{product.name} </td>
-                                            <td>{product.price}</td>
-                                            <td>{product.details}</td>
-                                            <td>{product.metal}</td>
-                                            <td>{product.category}</td>
-                                            <td>{product.gender}</td>
-                                            <td>{product.unit}</td>
+                                                <td>{product.name} </td>
+                                                <td>{product.price}</td>
+                                                <td>{product.details}</td>
+                                                <td>{product.metal}</td>
+                                                <td>{product.category}</td>
+                                                <td>{product.gender}</td>
+                                                <td>{product.unit}</td>
 
-                                            <td><a>Edit</a>|<a>Delete</a></td>
-                                        </tr>
+                                                <td><Button variant="info" 
+                                                onClick={() => this.setState({ editModalShow: true, 
+                                                pid:product.id,
+                                                pname: product.name
+                                                })}>Edit</Button>
+                                            &nbsp;<Button variant="danger" onClick={() => this.deleteProduct(product.id)}>Delete</Button></td>
+                                            </tr>
                                         )
-                                     
+
                                     })}
 
-</tbody>
+                                </tbody>
                             </table>
+                            <ButtonToolbar>
+                                <Button variant='primary'
+                                    onClick={() => this.setState({ addModalShow: true })}
+                                >
+                                    Add Product
+                             </Button>
+                                <NewProduct
+                                    show={this.state.addModalShow}
+                                    onHide={addModalClose}
+                                />
+                                <EditProduct 
+                                show = {this.state.editModalShow}
+                                onHide = {editModalClose}
+                                pid = {pid}
+                                pname = {pname} 
+                                />
+                            </ButtonToolbar>
+
                         </div>
                     </div>
+
                 </Container>
-          
+                <Footer />
+
             </main>
         )
     }

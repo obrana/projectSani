@@ -2,10 +2,11 @@ import React, { Component } from "react";
 
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap'; 
 
-export default class NewProduct extends Component {
+export default class EditProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:"",
             name: "",
             details: "",
             price: "",
@@ -23,6 +24,7 @@ export default class NewProduct extends Component {
         event.preventDefault();
 
         var data = new FormData();
+        data.append("id", this.state.id);
         data.append("name", this.state.name);
         data.append("price", this.state.price);
         data.append("details", this.state.details);
@@ -32,8 +34,8 @@ export default class NewProduct extends Component {
         data.append("details", this.state.unit);
 
 
-        fetch("/new", {
-            method: "POST",
+        fetch("/editproduct/:id", {
+            method: "PUT",
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -73,14 +75,27 @@ export default class NewProduct extends Component {
 >
         <Modal.Header closeButton>
             <Modal.Title id="contained-modal-title-vcenter">
-                Add Product
+                Edit Product
             </Modal.Title>
     </Modal.Header>
     <Modal.Body>
     <div className="container">
               
               <form onSubmit={this.handleSubmit} method="POST">
-               
+            
+              <div className="form-group">
+                      Id: {" "}
+                      <input
+                          type="text"
+                          onChange={this.myChangeHandler}
+                          name="id"
+                          value={this.state.id}
+                          className="form-control"
+                          placeholder="Product Id"
+                          disabled
+                          defaultValue={this.state.pid}
+                      />
+                  </div>
                   <div className="form-group">
                       Name: {" "}
                       <input
@@ -171,7 +186,7 @@ export default class NewProduct extends Component {
                       />
                   </div>
                   <button type="submit" onClick={this.props.onHide} className="homebtn">
-                                Submit
+                                Update
             </button>
                   </form>
                   </div>
