@@ -30,30 +30,42 @@ Router.get('/products/:id', function (req, res, next){
 });
 
 
-Router.delete('/products/:id', function (req, res, next){
+Router.delete('/delete/:id', function (req, res, next){  
+    var id = req.params.id;
     
-    connection.query('DELETE FROM products where id = ? ', req.params.id, function(err, rows, fields){
-        if(!err)
-        res.status(200).json({
-            status: 'successuflly deleted' ,
-            data: rows[0]
-        })
-        else
-        res.status(502).json([{
-            status:'failed',
-            errMsg: 'Error while performing query.'
-        }])
-    });
+   connection.query(`DELETE FROM products where id = '${id}'`, function(error, results, fields){
+        if(error) throw error; 
+        res.send(JSON.stringify(results)); 
+    }); 
 });
 
-
-Router.post('/new', (req, res) => {
+Router.put('/editproduct/:id', (req, res) => {
     var id = req.body.id;
-    var name = req.body.name;
+    var name = req.body.name; 
     var details = req.body.details;
     var category = req.body.category;
     var metal = req.body.metal;
-    var gender = req.body.gender;
+    var gender = req.body.gender; 
+    var unit = req.body.unit;
+    var price = req.body.price; 
+
+    var query = `UPDATE products SET name="${name}", details="${details}", category="${category}", metal="${metal}", gender="${gender}", unit="${unit}", price="${price}" WHERE id="${id}"`;
+    connection.query(query, (err, rows) => {
+        if(!err){
+            res.send(rows);
+        }else{
+            throw err;
+        }
+    });
+});
+
+Router.post('/new', (req, res) => {
+    var id = req.body.id;
+    var name = req.body.name; 
+    var details = req.body.details;
+    var category = req.body.category;
+    var metal = req.body.metal;
+    var gender = req.body.gender; 
     var unit = req.body.unit;
     var price = req.body.price; 
      
