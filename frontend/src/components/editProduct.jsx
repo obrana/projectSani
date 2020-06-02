@@ -23,17 +23,6 @@ export default class EditProduct extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        var data = new FormData();
-        data.append("id", this.state.id);
-        data.append("name", this.state.name);
-        data.append("price", this.state.price);
-        data.append("details", this.state.details);
-        data.append("details", this.state.metal);
-        data.append("details", this.state.category);
-        data.append("details", this.state.gender);
-        data.append("details", this.state.unit);
-
-
         fetch("/editproduct/:id", {
             method: "PUT",
             headers: {
@@ -81,7 +70,7 @@ export default class EditProduct extends Component {
     <Modal.Body>
     <div className="container">
               
-              <form onSubmit={this.handleSubmit} method="POST">
+              <form onSubmit={this.handleSubmit} method="PUT">
             
               <div className="form-group">
                       Id: {" "}
@@ -89,11 +78,11 @@ export default class EditProduct extends Component {
                           type="text"
                           onChange={this.myChangeHandler}
                           name="id"
-                          value={this.state.id}
+                       
                           className="form-control"
                           placeholder="Product Id"
                           disabled
-                          defaultValue={this.state.pid}
+                          defaultValue={this.props.pid}
                       />
                   </div>
                   <div className="form-group">
@@ -102,10 +91,12 @@ export default class EditProduct extends Component {
                           type="text"
                           onChange={this.myChangeHandler}
                           name="name"
-                          value={this.state.name}
+                     
                           className="form-control"
                           placeholder="Name"
                           required={true}
+                          defaultValue={this.props.pname}
+
                       />
                   </div>
                   <div className="form-group">
@@ -118,6 +109,7 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Product Prices"
                           required={true}
+                          defaultValue={this.props.pprice}
                       />
                   </div>
 
@@ -131,6 +123,7 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Description"
                           required={true}
+                          defaultValue={this.props.pdetails}
                       />
                   </div>
 
@@ -144,6 +137,7 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Description"
                           required={true}
+                          defaultValue={this.props.pmetal}
                       />
                   </div>
 
@@ -157,6 +151,7 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Description"
                           required={true}
+                          defaultValue={this.props.pcategory}
                       />
                   </div>
 
@@ -170,6 +165,7 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Description"
                           required={true}
+                          defaultValue={this.props.pgender}
                       />
                   </div>
 
@@ -183,16 +179,19 @@ export default class EditProduct extends Component {
                           className="form-control"
                           placeholder="Description"
                           required={true}
+                          defaultValue={this.props.punit}
                       />
                   </div>
-                  <button type="submit" onClick={this.props.onHide} className="homebtn">
-                                Update
-            </button>
+              <Button varient="primary" type="submit">
+                  Update
+              </Button>
                   </form>
                   </div>
     </Modal.Body>
     <Modal.Footer>
- 
+  <Button variant="danger" type="submit" onClick={this.props.onHide}>
+Close
+  </Button>
     </Modal.Footer>
     </Modal>
                

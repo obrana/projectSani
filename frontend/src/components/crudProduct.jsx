@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import CustomNavbar from "../components/customNavbar";
 import Footer from "../components/footer";
-import { Button, Container, ButtonToolbar } from "react-bootstrap";
+import { Button, Container, ButtonToolbar, Table } from "react-bootstrap";
 import NewProduct from '../components/newProduct';
 import EditProduct from '../components/editProduct';
-
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 
 
 
@@ -14,9 +15,9 @@ export default class CrudProduct extends React.Component {
         super(props);
         this.state = {
             products: [],
-            id: "",
             addModalShow: false,
-            editModalShow: false
+            editModalShow: false,
+          
         };
     }
 
@@ -54,7 +55,7 @@ export default class CrudProduct extends React.Component {
     }
 
     render() {
-        const {pid, pname } =this.state;
+        const {pid, pname, pprice, pdetails, pmetal, pcategory, pgender, punit } =this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({editModalShow: false});
 
@@ -62,10 +63,11 @@ export default class CrudProduct extends React.Component {
             <main>
                 <CustomNavbar />
                 <Container className="crudProduct">
+        
 
                     <div className="container">
                         <div className="panel panel-default p50 uth-panel">
-                            <table className="table table-hover">
+                            <Table className="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Product name</th>
@@ -92,8 +94,7 @@ export default class CrudProduct extends React.Component {
 
                                                 <td><Button variant="info" 
                                                 onClick={() => this.setState({ editModalShow: true, 
-                                                pid:product.id,
-                                                pname: product.name
+                                                pid:product.id, pname: product.name,  pprice: product.price, pdetails: product.details, pmetal: product.metal, pcategory: product.category, pgender: product.gender, punit: product.unit
                                                 })}>Edit</Button>
                                             &nbsp;<Button variant="danger" onClick={() => this.deleteProduct(product.id)}>Delete</Button></td>
                                             </tr>
@@ -102,7 +103,7 @@ export default class CrudProduct extends React.Component {
                                     })}
 
                                 </tbody>
-                            </table>
+                            </Table>
                             <ButtonToolbar>
                                 <Button variant='primary'
                                     onClick={() => this.setState({ addModalShow: true })}
@@ -118,6 +119,12 @@ export default class CrudProduct extends React.Component {
                                 onHide = {editModalClose}
                                 pid = {pid}
                                 pname = {pname} 
+                                pprice={pprice}
+                                pdetails={pdetails}
+                                pmetal={pmetal}
+                                pcategory={pcategory}
+                                pgender={pgender}
+                                punit={punit}
                                 />
                             </ButtonToolbar>
 
