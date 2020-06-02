@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
 
 import "./customNavbar.css";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default class CustomNavbar extends Component {
   render() {

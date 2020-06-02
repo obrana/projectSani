@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-import {Modal, Button, Row, Col, Form} from 'react-bootstrap'; 
+import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 
 export default class NewProduct extends Component {
     constructor(props) {
@@ -12,11 +14,16 @@ export default class NewProduct extends Component {
             metal: "",
             category: "",
             gender: "",
-            unit: ""
-         
+            unit: "",
+            snackbaropen: false,
+            snackbarmsg: ''
+
         };
         this.myChangeHandler = this.myChangeHandler.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    sncakbarClose = (event) => {
+        this.setState({ snackbaropen: false });
     }
 
     handleSubmit = (event) => {
@@ -40,12 +47,12 @@ export default class NewProduct extends Component {
             body: JSON.stringify(this.state)
         })
             .then(response => response.json())
-            .then(data => {
-                console.log('success:', data);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
+            .then((result) => {
+                this.setState({ snackbaropen: true, snackbarmsg: result });
+            },
+                (error) => {
+                    this.setState({ snackbaropen: true, snackbarmsg: 'failed' });
+                })
         // .then(req => {
         //     this.props.history.push("/products");
         // });
@@ -59,131 +66,149 @@ export default class NewProduct extends Component {
         this.setState({ [nam]: val });
     }
 
-   
+
 
     render() {
 
         return (
+            
             <>
-          
-                <Modal {...this.props}
-                size="lg"
-                aria-labellebdy="contained-modal-title-vcenter"
-                centered
->
-        <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-                Add Product
+                     <Snackbar
+                        anchorOrigin={{ vertical: 'center', horizontal: 'center' }}
+                        open={this.state.snackbaropen}
+                        autoHideDuration={3000}
+                        onClose={this.sncakbarClose}
+                        message={<span id='message-id'>{this.state.snackbarmsg}</span>}
+                        action={[
+                            <IconButton key="close"
+                                arial-lable="close"
+                                color="inherit"
+                                onClick={this.sncakbarClose} >
+                                x
+              </IconButton>
+                        ]} 
+                    />
+                <div className="container">
+                
+
+                    <Modal {...this.props}
+                        size="lg"
+                        aria-labellebdy="contained-modal-title-vcenter"
+                        centered
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title id="contained-modal-title-vcenter">
+                                Add Product
             </Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-    <div className="container">
-              
-              <form onSubmit={this.handleSubmit} method="POST">
+                        </Modal.Header>
+                        <Modal.Body>
                
-                  <div className="form-group">
-                      Name: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="name"
-                          value={this.state.name}
-                          className="form-control"
-                          placeholder="Name"
-                          required={true}
-                      />
-                  </div>
-                  <div className="form-group">
-                      Product Prices: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="price"
 
-                          className="form-control"
-                          placeholder="Product Prices"
-                          required={true}
-                      />
-                  </div>
+                                <form onSubmit={this.handleSubmit} method="POST">
 
-                  <div className="form-group">
-                      Description: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="details"
+                                    <div className="form-group">
+                                        Name: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="name"
+                                            value={this.state.name}
+                                            className="form-control"
+                                            placeholder="Name"
+                                            required={true}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        Product Prices: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="price"
 
-                          className="form-control"
-                          placeholder="Description"
-                          required={true}
-                      />
-                  </div>
+                                            className="form-control"
+                                            placeholder="Product Prices"
+                                            required={true}
+                                        />
+                                    </div>
 
-                  <div className="form-group">
-                      Metal: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="metal"
+                                    <div className="form-group">
+                                        Description: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="details"
 
-                          className="form-control"
-                          placeholder="Description"
-                          required={true}
-                      />
-                  </div>
+                                            className="form-control"
+                                            placeholder="Description"
+                                            required={true}
+                                        />
+                                    </div>
 
-                  <div className="form-group">
-                      category: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="category"
+                                    <div className="form-group">
+                                        Metal: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="metal"
 
-                          className="form-control"
-                          placeholder="Description"
-                          required={true}
-                      />
-                  </div>
+                                            className="form-control"
+                                            placeholder="Description"
+                                            required={true}
+                                        />
+                                    </div>
 
-                  <div className="form-group">
-                      gender: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="gender"
+                                    <div className="form-group">
+                                        category: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="category"
 
-                          className="form-control"
-                          placeholder="Description"
-                          required={true}
-                      />
-                  </div>
+                                            className="form-control"
+                                            placeholder="Description"
+                                            required={true}
+                                        />
+                                    </div>
 
-                  <div className="form-group">
-                      unit: {" "}
-                      <input
-                          type="text"
-                          onChange={this.myChangeHandler}
-                          name="unit"
+                                    <div className="form-group">
+                                        gender: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="gender"
 
-                          className="form-control"
-                          placeholder="Description"
-                          required={true}
-                      />
-                  </div>
-                  <button type="submit" onClick={this.props.onHide} className="homebtn">
-                                Submit
+                                            className="form-control"
+                                            placeholder="Description"
+                                            required={true}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        unit: {" "}
+                                        <input
+                                            type="text"
+                                            onChange={this.myChangeHandler}
+                                            name="unit"
+
+                                            className="form-control"
+                                            placeholder="Description"
+                                            required={true}
+                                        />
+                                    </div>
+                                    <button type="submit" onClick={this.props.onHide} className="homebtn">
+                                        Submit
             </button>
-                  </form>
-                  </div>
-    </Modal.Body>
-    <Modal.Footer>
- 
-    </Modal.Footer>
-    </Modal>
-               
+                                </form>
+                       
+                        </Modal.Body>
+                        <Modal.Footer>
+
+                        </Modal.Footer>
+                    </Modal>
+                </div>
             </>
         );
     }
 }
- 
+
 
