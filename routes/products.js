@@ -80,7 +80,7 @@ Router.post('/new', singleUpload, (req, res) => {
     var gender = req.body.gender; 
     var unit = req.body.unit;
     var price = req.body.price; 
-    var image_path = req.file.location; 
+    var image_path = req.file.key; 
      
 
      var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit, image_path) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}", "${image_path}")`;
