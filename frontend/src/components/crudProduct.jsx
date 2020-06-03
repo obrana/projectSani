@@ -6,7 +6,7 @@ import NewProduct from '../components/newProduct';
 import EditProduct from '../components/editProduct';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
-
+import "./crudProduct.css";
 
 
 
@@ -77,13 +77,14 @@ export default class CrudProduct extends React.Component {
                                         <th>Category</th>
                                         <th>Gender</th>
                                         <th>Unit</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {this.state.products.map((product) => {
                                         return (
-                                            <tr>
+                                            <tr key={product.id}>
                                                 <td>{product.name} </td>
                                                 <td>{product.price}</td>
                                                 <td>{product.details}</td>
@@ -91,6 +92,7 @@ export default class CrudProduct extends React.Component {
                                                 <td>{product.category}</td>
                                                 <td>{product.gender}</td>
                                                 <td>{product.unit}</td>
+                                                <td><img src={"https://sammenligne.s3.eu-central-1.amazonaws.com/" + product.image_path}/></td>
 
                                                 <td><Button variant="info" 
                                                 onClick={() => this.setState({ editModalShow: true, 

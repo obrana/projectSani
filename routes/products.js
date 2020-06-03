@@ -6,11 +6,11 @@ var upload = require('../aws_service');
 const singleUpload = upload.single('image_path');
 
 
-Router.post('/image-upload', function(req, res){
-    singleUpload(req, res, function(err){
-        return res.json({'imageUrl': req.file.location});
-    })
-})
+// Router.post('/image-upload', function(req, res){
+//     singleUpload(req, res, function(err){
+//         return res.json({'imageUrl': req.file.location}); 
+//     })
+// })
 
 
 
@@ -79,7 +79,7 @@ Router.post('/new', singleUpload, (req, res) => {
     var metal = req.body.metal;
     var gender = req.body.gender; 
     var unit = req.body.unit;
-    var price = req.body.price; 
+    var price = req.body.price;  
     var image_path = req.file.key; 
      
 
@@ -91,11 +91,11 @@ Router.post('/new', singleUpload, (req, res) => {
             res.send(rows);
 
         } else { 
-            console.log('record inserted');
-            res.redirect('/products')
+           // console.log(query);
+            // res.redirect('/products')
             throw err;
         }
     });
-});
+});  
 
-module.exports = Router;   
+module.exports = Router;    

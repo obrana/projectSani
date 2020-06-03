@@ -20,8 +20,8 @@ export default class NewProduct extends Component {
             snackbarmsg: ''
 
         };
-        this.myChangeHandler = this.myChangeHandler.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.myChangeHandler = this.myChangeHandler.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
     sncakbarClose = (event) => {
         this.setState({ snackbaropen: false });
@@ -38,17 +38,18 @@ export default class NewProduct extends Component {
         data.append("category", this.state.category);
         data.append("gender", this.state.gender);
         data.append("unit", this.state.unit);
-        data.append("image_path", this.state.image_path[1]);
+        data.append("image_path", this.state.image_path);
 
 
         fetch("/new", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.state)
+            // headers: {
+            //     'Content-Type': 'application/json',
+            // },
+            // body: JSON.stringify(this.state)
+            body: data
         })
-            .then(response => response.json())
+            .then(response => response.data)
             .then((result) => {
                 this.setState({ snackbaropen: true, snackbarmsg: result });
             },
@@ -62,11 +63,11 @@ export default class NewProduct extends Component {
     singleFileChangeHandler = e => {
         e.preventDefault();
         this.setState({
-            image_path : e.target.files
+            image_path : e.target.files[0]
         })
     };
 
-    myChangeHandler(event) {
+    myChangeHandler =(event) => {
         event.preventDefault();
         let nam = event.target.name;
         let val = event.target.value;
@@ -112,7 +113,7 @@ export default class NewProduct extends Component {
                         <Modal.Body>
                
 
-                                <form onSubmit={this.handleSubmit} method="POST">
+                                <form onSubmit={this.handleSubmit} >
 
                                     <div className="form-group">
                                         Name: {" "}

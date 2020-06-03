@@ -14,15 +14,15 @@ const s3 = new aws.S3();
 
 const upload = multer({
     storage: multerS3({
-        s3: s3,
+        s3: s3, 
         bucket: 'sammenligne',
         acl: 'public-read',
         // metadata: function (file, cb) {
         //     cb(null, { fieldName: file.fieldname });
         // },
-        key : function (req, file, cb) {
+        key: (req, file, cb) => {
             cb(null, Date.now().toString() + file.originalname)
-        }
+        } 
     }),
     limits: {
         fileSize: 1024 * 1024 * 2
