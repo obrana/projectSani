@@ -1,6 +1,18 @@
 var express = require('express');
 var Router = express.Router();
 var connection = require('../db'); 
+var upload = require('../aws_service');
+
+const singleUpload = upload.single('image_path');
+
+
+Router.post('/image-upload', function(req, res){
+    singleUpload(req, res, function(err){
+        return res.json({'imageUrl': req.file.location});
+    })
+})
+
+
 
 
 
@@ -59,7 +71,7 @@ Router.put('/editproduct/:id', (req, res) => {
     });
 });
 
-Router.post('/new', (req, res) => {
+Router.post('/new', singleUpload, (req, res) => {
     var id = req.body.id;
     var name = req.body.name; 
     var details = req.body.details;
@@ -68,9 +80,10 @@ Router.post('/new', (req, res) => {
     var gender = req.body.gender; 
     var unit = req.body.unit;
     var price = req.body.price; 
+    var image_path = req.file.location; 
      
 
-     var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}")`;
+     var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit, image_path) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}", "${image_path}")`;
     // var query = `call create_procedure ('${product_name}', '${product_details}', '${categories}', '${metal}', '${product_images}', '${price}', '${unit}', '${gender}')`;
    connection.query(query, (err, rows) => {
         if (!err) {
