@@ -15,12 +15,13 @@ export default class NewProduct extends Component {
             category: "",
             gender: "",
             unit: "",
+            image_path: null,
             snackbaropen: false,
             snackbarmsg: ''
 
         };
-        this.myChangeHandler = this.myChangeHandler.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.myChangeHandler = this.myChangeHandler.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
     sncakbarClose = (event) => {
         this.setState({ snackbaropen: false });
@@ -33,20 +34,22 @@ export default class NewProduct extends Component {
         data.append("name", this.state.name);
         data.append("price", this.state.price);
         data.append("details", this.state.details);
-        data.append("details", this.state.metal);
-        data.append("details", this.state.category);
-        data.append("details", this.state.gender);
-        data.append("details", this.state.unit);
+        data.append("metal", this.state.metal);
+        data.append("category", this.state.category);
+        data.append("gender", this.state.gender);
+        data.append("unit", this.state.unit);
+        data.append("image_path", this.state.image_path);
 
 
         fetch("/new", {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.state)
+            // headers: {
+            //     'Content-Type': 'application/json',
+            // },
+            // body: JSON.stringify(this.state)
+            body: data
         })
-            .then(response => response.json())
+            .then(response => response.data)
             .then((result) => {
                 this.setState({ snackbaropen: true, snackbarmsg: result });
             },
@@ -57,9 +60,15 @@ export default class NewProduct extends Component {
         //     this.props.history.push("/products");
         // });
     }
+    singleFileChangeHandler = e => {
+        e.preventDefault();
+        this.setState({
+            image_path : e.target.files[0]
+        })
+    };
 
-    myChangeHandler(event) {
-        // event.preventDefault();
+    myChangeHandler =(event) => {
+        event.preventDefault();
         let nam = event.target.name;
         let val = event.target.value;
 
@@ -104,7 +113,7 @@ export default class NewProduct extends Component {
                         <Modal.Body>
                
 
-                                <form onSubmit={this.handleSubmit} method="POST">
+                                <form onSubmit={this.handleSubmit} >
 
                                     <div className="form-group">
                                         Name: {" "}
@@ -152,7 +161,7 @@ export default class NewProduct extends Component {
                                             name="metal"
 
                                             className="form-control"
-                                            placeholder="Description"
+                                            placeholder="Metal"
                                             required={true}
                                         />
                                     </div>
@@ -165,7 +174,7 @@ export default class NewProduct extends Component {
                                             name="category"
 
                                             className="form-control"
-                                            placeholder="Description"
+                                            placeholder="Category"
                                             required={true}
                                         />
                                     </div>
@@ -178,7 +187,7 @@ export default class NewProduct extends Component {
                                             name="gender"
 
                                             className="form-control"
-                                            placeholder="Description"
+                                            placeholder="gender"
                                             required={true}
                                         />
                                     </div>
@@ -191,8 +200,20 @@ export default class NewProduct extends Component {
                                             name="unit"
 
                                             className="form-control"
-                                            placeholder="Description"
+                                            placeholder="unit"
                                             required={true}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        Image: {" "}
+                                        <input
+                                            type="file"
+                                            onChange={this.singleFileChangeHandler}
+                                            name="image_path"
+
+                                            className="form-control"
+                                            placeholder="Image Path"
+                                        
                                         />
                                     </div>
                                     <button type="submit" onClick={this.props.onHide} className="homebtn">
