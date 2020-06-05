@@ -14,27 +14,31 @@ export default class Footer extends Component {
               <h5>Customer Service</h5>
               <ul className="quicklinks">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">FAQs</Link>
                 </li>
                 <li>
-                  <Link to="/categories">Categories</Link>
+                  <Link to="/categories">Delivery</Link>
                 </li>
                 <li>
-                  <Link to="/products">Products</Link>
+                  <Link to="/products">Return</Link>
+                </li>
+
+                <li>
+                  <Link to="/products">Contact Us</Link>
                 </li>
               </ul>
             </div>
             <div className="col-md-4">
-              <h5>Company</h5>
+              <h5>About Sani</h5>
               <ul className="quicklinks">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">About Us</Link>
                 </li>
                 <li>
-                  <Link to="/categories">Categories</Link>
+                  <Link to="/categories">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/products">Products</Link>
+                  <Link to="/products">Terms and Conditions</Link>
                 </li>
               </ul>
             </div>

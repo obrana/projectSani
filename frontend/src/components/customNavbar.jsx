@@ -32,7 +32,7 @@ export default class CustomNavbar extends Component {
                   <Link to="/products">Bracelets</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to="/products">Necklaces & Pendants</Link>
+                  <Link to="/products">Necklaces</Link>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link>

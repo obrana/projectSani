@@ -52,7 +52,13 @@ export default class allproducts extends React.Component {
           {this.state.products.map((product, i) => {
             return (
               <Card className="productCard">
-                <Card.Img variant="top" src={"https://sammenligne.s3.eu-central-1.amazonaws.com/" + product.image_path}/>
+                <Card.Img
+                  variant="top"
+                  src={
+                    "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
+                    product.image_path
+                  }
+                />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   {/* <Card.Text>{product.details}</Card.Text> */}
