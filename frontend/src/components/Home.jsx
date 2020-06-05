@@ -37,15 +37,41 @@ export default class Home extends Component {
           <Fade {...properties}>
             <div className="image-container">
               <img src={images[0]} />
+              <Carousel.Caption>
+                <h3>The New Luxury</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
             </div>
             <div className="image-container">
               <img src={images[1]} />
+              <Carousel.Caption>
+                <h3>Only the finest</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
             </div>
+
             <div className="image-container">
               <img src={images[2]} />
+              <Carousel.Caption>
+                <h3>Fair Pricing</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
             </div>
+
             <div className="image-container">
               <img src={images[3]} />
+              <Carousel.Caption>
+                <h3>High Quality</h3>
+                <p>
+                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                </p>
+              </Carousel.Caption>
             </div>
           </Fade>
           {/* <Carousel>

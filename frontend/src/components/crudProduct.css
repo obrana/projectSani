@@ -1,3 +1,30 @@
-#proImg{
- height: 2rem !important;
+
+
+.table img {
+  height: 2rem !important;
 }
+.panel-default {
+  margin-top: 50px;
+}
+.table {
+  border: 1px solid #eee;
+}
+.table td,
+.table th {
+  font-size: 14px;
+}
+.btn-customBtn {
+  border: 1px solid #2997ff !important;
+  border-radius: 0px !important;
+  padding: 5px 25px;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  background-color: #2997ff !important;
+  color: #fff !important;
+}
+.editlink a {
+  color: #2997ff;
+}
+.delLink a {
+  color: red; 
+}
+
