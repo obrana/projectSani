@@ -13,6 +13,20 @@
 .table th {
   font-size: 14px;
 }
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
+
+.table td,
+.table th {
+  font-size: 14px;
+  border-right: 1px solid #dee2e6;
+}
+thead {
+  background: #eee !important;
+}
 .btn-customBtn {
   border: 1px solid #2997ff !important;
   border-radius: 0px !important;
@@ -21,10 +35,13 @@
   background-color: #2997ff !important;
   color: #fff !important;
 }
-.editlink a {
-  color: #2997ff;
+.editLink {
+  color: #2997ff !important;
+  cursor: pointer;
 }
-.delLink a {
-  color: red; 
+
+.delLink {
+  color: #f32013 !important;
+  cursor: pointer;
 }
 
