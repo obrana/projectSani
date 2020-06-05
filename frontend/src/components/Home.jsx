@@ -38,10 +38,8 @@ export default class Home extends Component {
             <div className="image-container">
               <img src={images[0]} />
               <Carousel.Caption>
-                <h3>The New Luxury</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
+                <h3>Highclass, Handcrafted, Lovely</h3>
+                <p>Because a sparkling diamond can change your life.</p>
               </Carousel.Caption>
             </div>
             <div className="image-container">
@@ -49,7 +47,7 @@ export default class Home extends Component {
               <Carousel.Caption>
                 <h3>Only the finest</h3>
                 <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
+                  Elegant craftsmanship with standard material is what you need
                 </p>
               </Carousel.Caption>
             </div>
@@ -58,19 +56,15 @@ export default class Home extends Component {
               <img src={images[2]} />
               <Carousel.Caption>
                 <h3>Fair Pricing</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
+                <p>No hidden cost, no markups, just luxury</p>
               </Carousel.Caption>
             </div>
 
             <div className="image-container">
               <img src={images[3]} />
               <Carousel.Caption>
-                <h3>High Quality</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
+                <h3>Intrigue. Elegance. You.</h3>
+                <p>Exquisite style for everyday wear.</p>
               </Carousel.Caption>
             </div>
           </Fade>
@@ -104,15 +98,27 @@ export default class Home extends Component {
               />
             </Carousel.Item>
           </Carousel> */}
-          <Card className="text-center sectionOne">
+          <Card className="text-center introText">
             <Card.Body>
-              <Card.Title className="big-title">Explore the designs</Card.Title>
+              <Card.Title className="big-title">Introducing SANI</Card.Title>
               <Card.Text>
-                We look forward to welcoming you in store soon.
+                This is the beginning of our story. Sani is all about jewelry
+                for occasions, jewelry for every moment. Add a little elegance
+                to your routine. Elegant craftsmanship with standard material is
+                what you need. We look forward to welcoming you in store soon.
               </Card.Text>
-              <Button variant="customButton">Shop Now</Button>
+              <Card className="text-center sectionOne">
+                <Card.Body>
+                  <Card.Title className="small-title">
+                    Explore our designs
+                  </Card.Title>
+                  <Card.Text>There is no harm in looking! :)</Card.Text>
+                  <Button variant="customButton">Shop Now</Button>
+                </Card.Body>
+              </Card>{" "}
             </Card.Body>
           </Card>
+
           <CardGroup>
             <Card>
               <Card.Img variant="top" src="assets/rings.jpg" />
@@ -133,6 +139,13 @@ export default class Home extends Component {
               </Card.Body>
             </Card>
           </CardGroup>
+
+          <Card className="imageCard">
+            <Card.Img src="assets/cardimg.jpg" alt="Card image" />
+            <Card.ImgOverlay>
+              <Card.Title>Every day style. Extraordinary elegance.</Card.Title>
+            </Card.ImgOverlay>
+          </Card>
         </Container>
 
         <Router>

@@ -1,9 +1,12 @@
 .productCard {
-  width: 17rem;
+  width: 25%;
   float: left !important;
-  margin: 10px 2px 1px 2px;
+  margin: auto;
   border: 0 none !important;
+  text-align: center;
+  padding: 0px 2px;
 }
+
 .card-img-top {
   border-radius: 0px !important;
   border: 1px solid #eee;
@@ -37,4 +40,11 @@ img.card-img-top {
 .jumbotron h5 {
   margin: 30px 20px;
   text-align: left;
+}
+@media (max-width: 768px) {
+  .productCard {
+    width: 100%;
+  }
+}
+@media (max-width: 375px) {
 }

@@ -4,6 +4,11 @@
 .sectionOne {
   border: 0 none !important;
 }
+.introText {
+  border: 0 none !important;
+  width: 50%;
+  margin: auto;
+}
 a {
   color: palevioletred;
 }
@@ -30,12 +35,16 @@ a {
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #fff;
+  color: #000;
   font-family: "Open Sans", "Century Gothic", sans-serif;
   text-align: left;
 }
 .carousel-caption h3 {
   font-size: 2.75rem !important;
+}
+.carousel-caption p {
+  font-style: italic;
+  font-weight: 600;
 }
 .card-title {
   font-family: "Open Sans", "Century Gothic", sans-serif;
@@ -44,12 +53,36 @@ a {
 }
 .big-title {
   font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.small-title {
+  font-family: "Open Sans", "Century Gothic", sans-serif;
   font-size: 18px;
   text-transform: uppercase;
+  font-weight: 600;
 }
 .react-slideshow-container .nav {
   display: none;
 }
 .react-slideshow-container + div.indicators {
   display: none;
+}
+.imageCard .card-title {
+  color: #fff;
+  text-align: left;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  padding: 70px 0px 0px 50px;
+}
+.imageCard {
+  margin-bottom: 50px;
+  border: 0 none !important;
+  border-radius: 0px !important;
+}
+.card-img {
+  border: 0 none !important;
+  border-radius: 0px !important;
 }
