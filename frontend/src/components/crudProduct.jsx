@@ -92,7 +92,7 @@ export default class CrudProduct extends React.Component {
                                                 <td>{product.category}</td>
                                                 <td>{product.gender}</td>
                                                 <td>{product.unit}</td>
-                                                <td><img src={"https://sammenligne.s3.eu-central-1.amazonaws.com/" + product.image_path}/></td>
+                                                <td><img id="proImg" src={"https://sammenligne.s3.eu-central-1.amazonaws.com/" + product.image_path}/></td>
 
                                                 <td><Button variant="info" 
                                                 onClick={() => this.setState({ editModalShow: true, 
