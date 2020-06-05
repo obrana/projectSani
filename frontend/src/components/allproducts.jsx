@@ -18,7 +18,12 @@ export default class allproducts extends React.Component {
     this.state = {
       products: [],
     };
+    this.productDetails = this.productDetail.bind(this);
   }
+
+productDetail(id){
+  this.props.history.push(`/detailpage/${id}`);
+}
 
   componentDidMount() {
     let self = this;
@@ -54,6 +59,7 @@ export default class allproducts extends React.Component {
               <Card className="productCard">
                 <Card.Img
                   variant="top"
+                  onClick={() => this.productDetail(product.id)}
                   src={
                     "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
                     product.image_path
