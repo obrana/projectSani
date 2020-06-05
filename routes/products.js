@@ -25,6 +25,16 @@ connection.query(query, function (error, results)
 })
 });
 
+
+Router.get('/productdetail/:id', function (req, res) {
+    var id = req.params.id;
+    var query = `SELECT * FROM products where products.id = ${id}`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+
 Router.get('/products/:id', function (req, res, next){
     
     connection.query('SELECT * FROM products where id = ? ', req.params.id, function(err, rows, fields){
