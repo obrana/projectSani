@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import CustomNavbar from "../components/customNavbar";
 import Footer from "../components/footer";
+import { Button, Container, ButtonToolbar, Table } from "react-bootstrap";
 
 class DetailPage extends Component {
     constructor(props) {
@@ -25,9 +26,7 @@ class DetailPage extends Component {
             <CustomNavbar/>
             <div className="container-fluid-details">
                 <div className="container">
-                    <div className="well">
-                        <h2> Product Details</h2>
-                    </div>
+                 
                     <div className="row">
                         {this.state.products.map(product => (
                             <div className="col-6" key={product.id}>
@@ -46,7 +45,7 @@ class DetailPage extends Component {
                                         <p>{product.details}</p>
                                         <h2>{product.price}</h2>
                                        <h2>{product.metal}</h2> 
-                                      
+                                      <Button >Add to cart</Button>
                                     </div>
                                 </div>
                             </div>
