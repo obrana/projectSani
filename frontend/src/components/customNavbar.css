@@ -54,7 +54,7 @@ nav.navbar,
   margin: 0px auto !important;
 }
 .navbar-brand img {
-  height: 70px;
+  height: 70px !important;
 }
 .navbar-toggler {
   padding: 3px 5px !important;

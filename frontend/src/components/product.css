@@ -6,6 +6,11 @@
 }
 .card-img-top {
   border-radius: 0px !important;
+  border: 1px solid #eee;
+  background: #eee;
+}
+img.card-img-top {
+  height: auto !important;
 }
 .productPage {
   width: 100% !important;
