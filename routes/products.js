@@ -35,6 +35,40 @@ Router.get('/productdetail/:id', function (req, res) {
     });
 });
 
+Router.get('/ring', function (req, res) {
+    var id = req.params.id;
+    var query = `SELECT * FROM products where products.category = "Rings"`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+
+Router.get('/earring', function (req, res) {
+    var id = req.params.id;
+    var query = `SELECT * FROM products where products.category = "Earrings"`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+Router.get('/necklace', function (req, res) {
+    var id = req.params.id;
+    var query = `SELECT * FROM products where products.category = "Necklaces"`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+Router.get('/bracelets', function (req, res) {
+    var id = req.params.id;
+    var query = `SELECT * FROM products where products.category = "Rings"`;
+    connection.query(query, function (error, results) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+
 Router.get('/products/:id', function (req, res, next){
     
     connection.query('SELECT * FROM products where id = ? ', req.params.id, function(err, rows, fields){
