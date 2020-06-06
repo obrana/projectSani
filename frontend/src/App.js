@@ -15,6 +15,7 @@ import newProduct from "./components/newProduct";
 import crudProduct from "./components/crudProduct";
 import DetailPage from "./components/detailspage";
 
+
 class App extends Component {
   render() {
     return (
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/newProduct" component={newProduct} />
             <Route exact path="/crudProduct" component={crudProduct} />
             <Route exact path="/detailpage/:id" component={DetailPage} />
+          
             <Route exact path="/" component={Home} />
           </Switch>
         </div>

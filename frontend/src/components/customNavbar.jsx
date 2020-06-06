@@ -18,7 +18,7 @@ export default class CustomNavbar extends Component {
           expand="lg"
           bg="dark"
           variant="dark"
-          // fixed="top"
+        // fixed="top"
         >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -55,13 +55,15 @@ export default class CustomNavbar extends Component {
                 <NavLink to="Contact">Contact Us</NavLink>
               </Nav.Link>
               <Nav>
-                <NavDropdown title="account">
-                  <UserProvider>
-                    <Application />
-                  </UserProvider>
-                </NavDropdown>
+              <Nav.Link>
+                <UserProvider>
+                  <Application/>
+                </UserProvider>
+              </Nav.Link>
               </Nav>
             </Nav>
+       
+
           </Navbar.Collapse>
         </Navbar>
       </main>

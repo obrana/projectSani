@@ -97,7 +97,7 @@ class DetailPage extends Component {
                           Size Chart
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
-                          <Card.Img variant="top" src="assets/size-chart.jpg" />
+                          <Card.Img variant="top" src="/assets/size-chart.jpg" />
                         </Accordion.Collapse>
                       </Card>
                     </Accordion>
