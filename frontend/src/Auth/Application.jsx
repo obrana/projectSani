@@ -6,19 +6,26 @@ import UserProvider from "../providers/UserProvider";
 import ProfilePage from "./ProfilePage";
 import { UserContext } from "../providers/UserProvider";
 import PasswordReset from "./PasswordReset";
+import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Application() {
   const user = useContext(UserContext);
   return user ? (
     <ProfilePage />
-  ) : (
-    <Router>
-      <SignUp path="/signUp"/>
-      <SignIn path="/signIn" />
-      <PasswordReset path="/passwordReset" />
-      <ProfilePage path="/profilepage" />
-    </Router>
-  );
+  ) : (<>
+    <Nav>
+    <NavDropdown title="account">
+      <NavDropdown.Item>
+        <NavLink to="/signIn">SignIn</NavLink>
+      </NavDropdown.Item>
+      <NavDropdown.Item>
+        <NavLink to="/signUp">Register</NavLink>
+      </NavDropdown.Item>
+</NavDropdown> 
+    </Nav>
+  </>
+    );
 }
 
 export default Application;

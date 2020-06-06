@@ -3,8 +3,17 @@
   "version": "1.0.0",
   "description": "project sani with nodejs express",
   "main": "index.js",
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.13.7"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "server": "node app.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+  
   },
   "author": "",
   "license": "ISC",

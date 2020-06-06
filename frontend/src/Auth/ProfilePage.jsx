@@ -42,7 +42,7 @@ const ProfilePage = () => {
           Sign out
         </button>
       </div>
-      <Footer />
+    
     </main>
   );
 };
