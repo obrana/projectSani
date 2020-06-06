@@ -95,5 +95,4 @@ class DetailPage extends Component {
         );
     }
 }
-
 export default DetailPage;

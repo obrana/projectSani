@@ -4,7 +4,6 @@ import { Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../components/footer";
-import CustomNavbar from "../components/customNavbar";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import { Fade } from "react-slideshow-image";
@@ -30,9 +29,6 @@ export default class Home extends Component {
   render() {
     return (
       <main>
-        <Router>
-          <CustomNavbar />
-        </Router>
         <Container>
           <Fade {...properties}>
             <div className="image-container">
