@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import "./auth.css";
 import Footer from "../components/footer";
-import CustomNavbar from "../components/customNavbar";
 
 const ProfilePage = () => {
   const user = useContext(UserContext);
@@ -15,7 +14,6 @@ const ProfilePage = () => {
 
   return (
     <main>
-      <CustomNavbar />
       <div className="mx-auto w-11/12 md:w-2/4 py-8 px-4 md:px-8 dashboard">
         <div className="flex border flex-col items-center md:flex-row md:items-start border-blue-400 px-3 py-4">
           <div

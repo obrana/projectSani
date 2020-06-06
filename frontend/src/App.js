@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import CustomNavbar from "./components/customNavbar";
 
 import allproducts from "./components/allproducts";
 import SignUp from "./Auth/SignUp";
@@ -14,16 +15,14 @@ import newProduct from "./components/newProduct";
 import crudProduct from "./components/crudProduct";
 import DetailPage from "./components/detailspage";
 
-// import Application from "./Auth/Application";
-// import UserProvider from "./providers/UserProvider";
-
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <CustomNavbar />
+
         <div className="App">
           <Switch>
-          
             <Route exact path="/products" component={allproducts} />
             <Route exact path="/SignUp" component={SignUp} />
             <Route exact path="/SignIn" component={SignIn} />
@@ -40,12 +39,5 @@ class App extends Component {
     );
   }
 }
-// function App() {
-//   return (
-//     <UserProvider>
-//       <Application />
-//     </UserProvider>
-//   );
-// }
 
 export default App;

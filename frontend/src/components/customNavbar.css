@@ -80,6 +80,7 @@ nav.navbar,
   padding: 5px 0px 5px;
   font-size: 12px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .logo {

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
 
 import "./customNavbar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import Application from "../Auth/Application";
+import UserProvider from "../providers/UserProvider";
 
 export default class CustomNavbar extends Component {
   render() {
@@ -23,43 +25,42 @@ export default class CustomNavbar extends Component {
             <Nav>
               <NavDropdown title="Jewelry" id="basic-nav-dropdown">
                 <NavDropdown.Item>
-                  <Link to="/products">Rings</Link>
+                  <NavLink to="/products">Rings</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to="/products">Earrings</Link>
+                  <NavLink to="/products">Earrings</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to="/products">Bracelets</Link>
+                  <NavLink to="/products">Bracelets</NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link to="/products">Necklaces</Link>
+                  <NavLink to="/products">Necklaces</NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link>
-                <Link to="/products">Accessories</Link>
+                <NavLink to="/products">Accessories</NavLink>
               </Nav.Link>
               <Nav.Link>
-                <Link to="/products">Gift</Link>
+                <NavLink to="/products">Gift</NavLink>
               </Nav.Link>
             </Nav>
             <Navbar.Brand>
-              <Link to="/">
+              <NavLink to="/">
                 <Image src="assets/logo.png" />
-              </Link>
+              </NavLink>
             </Navbar.Brand>
 
             <Nav>
               <Nav.Link>
-                <Link to="Contact">Contact Us</Link>
+                <NavLink to="Contact">Contact Us</NavLink>
               </Nav.Link>
-              <NavDropdown title="My Account" id="basic-nav-dropdown">
-                <NavDropdown.Item>
-                  <Link to="/SignUp">Register</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/SignIn">LogIn</Link>
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Nav>
+                <NavDropdown title="account">
+                  <UserProvider>
+                    <Application />
+                  </UserProvider>
+                </NavDropdown>
+              </Nav>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
