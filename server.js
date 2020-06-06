@@ -41,6 +41,6 @@ app.use(function (req, res, next) {
   });
 
 app.listen(process.env.PORT || 3001, ()=> {
-    console.log('go to http://localhost:3000/products to see the products', this.address().port, app.settings.env);
+    console.log('go to http://localhost:3000/products to see the products');
 }); 
 
