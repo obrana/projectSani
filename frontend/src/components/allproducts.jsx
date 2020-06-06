@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import Footer from "../components/footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Filter from "../components/filter";
 
 import "./product.css";
 
@@ -16,8 +17,10 @@ export default class allproducts extends React.Component {
     super(props);
     this.state = {
       products: [],
+      filteredProducts: []
     };
     this.productDetails = this.productDetail.bind(this);
+    this.handleChangeSort = this.handleChangeSort.bind(this);
   }
 
   productDetail(id) {
@@ -36,11 +39,26 @@ export default class allproducts extends React.Component {
         return response.json();
       })
       .then(function (data) {
-        self.setState({ products: data });
+        self.setState({ products: data , filteredProducts: data});
       })
       .catch((err) => {
         console.log("caught it!", err);
       });
+  };
+  handleChangeSort(e){
+    this.setState({sort: e.target.value});
+    this.listProducts();
+
+  }
+  listProducts(){
+    this.setState(state => {
+      if(state.sort !== ''){
+        state.products.sort((a,b)=>(state.sort==='lowest')? (a.price < b.price?1:-1): (a.price > b.price?1:-1));
+      }else{
+        state.products.sort((a,b) => (a.id < b.id?1:-1));
+      }
+      return{filteredProducts: state.products};
+    })
   }
   render() {
     return (
@@ -51,10 +69,11 @@ export default class allproducts extends React.Component {
             <h5>Rings</h5>
             <p>Discover classic rings or create your own with us.</p>
           </Jumbotron>
-
+          <Filter price = {this.state.price} handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length} />
+          <hr/>
           {this.state.products.map((product, i) => {
             return (
-              <Card className="productCard">
+              <Card className="productCard" key={product.id}>
                 <Card.Img
                   variant="top"
                   onClick={() => this.productDetail(product.id)}
