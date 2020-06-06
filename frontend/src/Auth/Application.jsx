@@ -13,10 +13,10 @@ function Application() {
     <ProfilePage />
   ) : (
     <Router>
-      <SignUp path="signUp" />
+      <SignUp path="/signUp"/>
       <SignIn path="/signIn" />
-      <PasswordReset path="passwordReset" />
-      <ProfilePage path="profilepage" />
+      <PasswordReset path="/passwordReset" />
+      <ProfilePage path="/profilepage" />
     </Router>
   );
 }

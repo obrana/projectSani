@@ -14,16 +14,16 @@ export default class Contact extends Component {
             <h4>Send a Message</h4>
             <Form>
               <Form.Group controlId="ControlInput">
-                <Form.Control type="email" placeholder="Name" />
+                <Form.Control type="text" placeholder="Name" required="true" />
               </Form.Group>
               <Form.Group controlId="ControlInput">
-                <Form.Control type="email" placeholder="Email Address" />
+                <Form.Control type="email" placeholder="Email Address" required="true"  />
               </Form.Group>
               <Form.Group controlId="ControlInput">
-                <Form.Control type="email" placeholder="Address" />
+                <Form.Control type="text" placeholder="Address" required="true" />
               </Form.Group>
               <Form.Group controlId="ControlInput">
-                <Form.Control type="email" placeholder="Phone Number" />
+                <Form.Control type="number" placeholder="Phone Number" required="true" />
               </Form.Group>
 
               <Form.Group controlId="ControlInput">
@@ -31,9 +31,10 @@ export default class Contact extends Component {
                   as="textarea"
                   placeholder="Your Message Here"
                   rows="5"
+                  required="true" 
                 />
               </Form.Group>
-              <Button className="btn-customBtn" type="submit">
+              <Button className="btn-customBtn" type="submit" onClick={() => alert("Your Message has sent!")} >
                 Send
               </Button>
             </Form>
