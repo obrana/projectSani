@@ -6,29 +6,32 @@ export default class Basket extends Component {
   render() {
     const { cartItems } = this.props;
     return (
-      <div className="alert alert-info">
+      <div className="alert alert-info basket">
         {cartItems.length === 0 ? (
           "Basket is empty"
         ) : (
-          <div>You have {cartItems.length} products items</div>
+          <div>You have {cartItems.length} products in your cart</div>
         )}
         {cartItems.length > 0 && (
           <div>
             <ul>
               {cartItems.map((item) => (
                 <li>
-                  <b>{item.name}</b>X {item.count} = {item.price * item.count}{" "}
+                  <b>{item.name}</b> X {item.count} ={" "}
+                  <b>{item.price * item.count}</b>
                   DKK
-                  <button
-                    className="btn btn-danger"
+                  <a
+                    className="delLink"
                     onClick={() => this.props.handleRemoveFromCart(item)}
                   >
-                    X
-                  </button>
+                    Remove item
+                  </a>
                 </li>
               ))}
             </ul>
-            Total: {cartItems.reduce((a, c) => a + c.price * c.count, 0)} DKK
+            <b>
+              Total: {cartItems.reduce((a, c) => a + c.price * c.count, 0)} DKK
+            </b>
             <br />
             <Button
               className="btn-customBtn"

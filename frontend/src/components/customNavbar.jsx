@@ -46,7 +46,7 @@ export default class CustomNavbar extends Component {
             </Nav>
             <Navbar.Brand>
               <NavLink to="/">
-                <Image src="assets/logo.png" />
+                <Image src="/assets/logo.png" />
               </NavLink>
             </Navbar.Brand>
 
