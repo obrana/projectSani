@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var ProductsRoutes = require("./routes/products");
 
 
+
 var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -15,5 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', ProductsRoutes);
 
-app.listen(3001); 
+app.listen(process.env.PORT || 3001, ()=> {
+    console.log('go to http://localhost:3000/products to see the products');
+}); 
 
