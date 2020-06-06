@@ -95,7 +95,9 @@ export default class allproducts extends React.Component {
                 />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
+
                   <Card.Text>{product.price} DKK</Card.Text>
+
                   {/* <Button className="btn-customButton">Add to Cart</Button> */}
                 </Card.Body>
               </Card>

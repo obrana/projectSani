@@ -65,7 +65,7 @@ export default class CrudProduct extends React.Component {
 
     return (
       <main>
-        <CustomNavbar />
+      
         <Container className="crudProduct">
           <div className="container">
             <div className="panel panel-default p50 uth-panel">
