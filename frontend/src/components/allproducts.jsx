@@ -17,7 +17,7 @@ export default class allproducts extends React.Component {
     super(props);
     this.state = {
       products: [],
-      filteredProducts: []
+      filteredProducts: [],
     };
     this.productDetails = this.productDetail.bind(this);
     this.handleChangeSort = this.handleChangeSort.bind(this);
@@ -39,26 +39,33 @@ export default class allproducts extends React.Component {
         return response.json();
       })
       .then(function (data) {
-        self.setState({ products: data , filteredProducts: data});
+        self.setState({ products: data, filteredProducts: data });
       })
       .catch((err) => {
         console.log("caught it!", err);
       });
-  };
-  handleChangeSort(e){
-    this.setState({sort: e.target.value});
-    this.listProducts();
-
   }
-  listProducts(){
-    this.setState(state => {
-      if(state.sort !== ''){
-        state.products.sort((a,b)=>(state.sort==='lowest')? (a.price < b.price?1:-1): (a.price > b.price?1:-1));
-      }else{
-        state.products.sort((a,b) => (a.id < b.id?1:-1));
+  handleChangeSort(e) {
+    this.setState({ sort: e.target.value });
+    this.listProducts();
+  }
+  listProducts() {
+    this.setState((state) => {
+      if (state.sort !== "") {
+        state.products.sort((a, b) =>
+          state.sort === "lowest"
+            ? a.price < b.price
+              ? 1
+              : -1
+            : a.price > b.price
+            ? 1
+            : -1
+        );
+      } else {
+        state.products.sort((a, b) => (a.id < b.id ? 1 : -1));
       }
-      return{filteredProducts: state.products};
-    })
+      return { filteredProducts: state.products };
+    });
   }
   render() {
     return (
@@ -69,8 +76,12 @@ export default class allproducts extends React.Component {
             <h5>Rings</h5>
             <p>Discover classic rings or create your own with us.</p>
           </Jumbotron>
-          <Filter price = {this.state.price} handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length} />
-          <hr/>
+          <Filter
+            price={this.state.price}
+            handleChangeSort={this.handleChangeSort}
+            count={this.state.filteredProducts.length}
+          />
+          <hr />
           {this.state.products.map((product, i) => {
             return (
               <Card className="productCard" key={product.id}>
@@ -84,8 +95,9 @@ export default class allproducts extends React.Component {
                 />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
-                  {product.price}DKK
-                  {/* <Card.Text>{product.details}</Card.Text> */}
+
+                  <Card.Text>{product.price} DKK</Card.Text>
+
                   {/* <Button className="btn-customButton">Add to Cart</Button> */}
                 </Card.Body>
               </Card>
