@@ -4,7 +4,6 @@ import { UserContext } from "../providers/UserProvider";
 import { Link } from "react-router-dom";
 import "./auth.css";
 import Footer from "../components/footer";
-import CustomNavbar from "../components/customNavbar";
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
   const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
@@ -34,7 +33,6 @@ const PasswordReset = () => {
   };
   return (
     <main>
-      <CustomNavbar />
       <div className="mt-8 login-credentials">
         <div className="border border-blue-300 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           <form action="">

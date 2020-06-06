@@ -6,7 +6,6 @@ import { Button, Container } from "react-bootstrap";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import Footer from "../components/footer";
-import CustomNavbar from "../components/customNavbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -21,9 +20,9 @@ export default class allproducts extends React.Component {
     this.productDetails = this.productDetail.bind(this);
   }
 
-productDetail(id){
-  this.props.history.push(`/detailpage/${id}`);
-}
+  productDetail(id) {
+    this.props.history.push(`/detailpage/${id}`);
+  }
 
   componentDidMount() {
     let self = this;
@@ -46,7 +45,6 @@ productDetail(id){
   render() {
     return (
       <main>
-        <CustomNavbar />
         <Container className="productPage">
           {/* <h4 className="smallHead">Welcome to product page</h4> */}
           <Jumbotron>
