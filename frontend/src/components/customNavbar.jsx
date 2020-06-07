@@ -3,8 +3,7 @@ import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
 
 import "./customNavbar.css";
 import { NavLink } from "react-router-dom";
-import Application from "../Auth/Application";
-import UserProvider from "../providers/UserProvider";
+
 
 export default class CustomNavbar extends Component {
   render() {
@@ -55,14 +54,22 @@ export default class CustomNavbar extends Component {
                 <NavLink to="Contact">Contact Us</NavLink>
               </Nav.Link>
               <Nav>
-              <Nav.Link>
+                <NavDropdown title="account">
+                  <NavDropdown.Item>
+                    <NavLink to="/signIn">SignIn</NavLink>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/signUp">Register</NavLink>
+                  </NavDropdown.Item>
+                </NavDropdown>
+                {/* <Nav.Link>
                 <UserProvider>
                   <Application/>
                 </UserProvider>
-              </Nav.Link>
+              </Nav.Link> */}
               </Nav>
             </Nav>
-       
+
 
           </Navbar.Collapse>
         </Navbar>
