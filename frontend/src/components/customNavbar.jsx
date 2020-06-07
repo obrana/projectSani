@@ -66,7 +66,7 @@ export default class CustomNavbar extends Component {
                 <UserProvider>
                   <Application/>
                 </UserProvider>
-              </Nav.Link> */}
+              </Nav.Link> */}  
               </Nav>
             </Nav>
 
