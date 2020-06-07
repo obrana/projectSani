@@ -13,19 +13,9 @@ function Application() {
   const user = useContext(UserContext);
   return user ? (
     <ProfilePage />
-  ) : (<>
-    <Nav>
-    <NavDropdown title="account">
-      <NavDropdown.Item>
-        <NavLink to="/signIn">SignIn</NavLink>
-      </NavDropdown.Item>
-      <NavDropdown.Item>
-        <NavLink to="/signUp">Register</NavLink>
-      </NavDropdown.Item>
-</NavDropdown> 
-    </Nav>
+  ) : 
+  <>
   </>
-    );
 }
 
 export default Application;
