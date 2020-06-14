@@ -49,6 +49,7 @@ export default class allproducts extends React.Component {
     this.setState({ sort: e.target.value });
     this.listProducts();
   }
+  
   listProducts() {
     this.setState((state) => {
       if (state.sort !== "") {

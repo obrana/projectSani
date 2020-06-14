@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 var ProductsRoutes = require("./routes/products");
+var OrderRoutes = require("./routes/order");
 var cookieParser = require('cookie-parser');
 
 
@@ -21,6 +22,7 @@ if(process.env.NODE_ENV === "production"){
     })
 }
 app.use('/', ProductsRoutes);
+app.use('/', OrderRoutes);
 
 app.use(function (req, res, next) {
     next(createError(404));
