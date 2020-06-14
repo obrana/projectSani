@@ -1,10 +1,22 @@
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
+import Order from "../components/order";
 import "./product.css";
 
 export default class Basket extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      orders: [],
+      addModalShow: false,
+      editModalShow: false,
+   
+    };
+  }
   render() {
     const { cartItems } = this.props;
+    let addModalClose = () => this.setState({ addModalShow: false });
+    let editModalClose = () => this.setState({ editModalShow: false });
     return (
       <div className="alert alert-info basket">
         {cartItems.length === 0 ? (
@@ -34,11 +46,16 @@ export default class Basket extends Component {
             </b>
             <br />
             <Button
-              className="btn-customBtn"
-              onClick={() => alert("Checkout is processing...")}
-            >
-              Proceed to payment
-            </Button>
+                      className="btn-customBtn"
+                      variant="primary"
+                      onClick={() => this.setState({ addModalShow: true })}
+                    >
+                      Proceed to payment
+                    </Button>
+            <Order
+                      show={this.state.addModalShow}
+                      onHide={addModalClose}
+                    />
           </div>
         )}
       </div>

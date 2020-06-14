@@ -5,42 +5,33 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import "./crudProduct.css";
 
-export default class NewProduct extends Component {
+export default class Order extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      details: "",
-      price: "",
-      metal: "",
-      category: "",
-      gender: "",
-      unit: "",
-      image_path: null,
-      snackbaropen: false,
-      snackbarmsg: "",
+      address: "",
+      zip: "",
+      city: "",
+      ordernumber: "",
+      product_id: "",
     };
     // this.myChangeHandler = this.myChangeHandler.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
-  sncakbarClose = (event) => {
-    this.setState({ snackbaropen: false });
-  };
+
 
   handleSubmit = (event) => {
     event.preventDefault();
 
     var data = new FormData();
     data.append("name", this.state.name);
-    data.append("price", this.state.price);
-    data.append("details", this.state.details);
-    data.append("metal", this.state.metal);
-    data.append("category", this.state.category);
-    data.append("gender", this.state.gender);
-    data.append("unit", this.state.unit);
-    data.append("image_path", this.state.image_path);
-
-    fetch("/new", {
+    data.append("address", this.state.address);
+    data.append("zip", this.state.zip);
+    data.append("city", this.state.city);
+    data.append("ordernumber", this.state.ordernumber);
+    data.append("product_id", this.state.product_id);
+    fetch("/neworder", {
       method: "POST",
       // headers: {
       //     'Content-Type': 'application/json',
@@ -60,12 +51,6 @@ export default class NewProduct extends Component {
     // .then(req => {
     //     this.props.history.push("/products");
     // });
-  };
-  singleFileChangeHandler = (e) => {
-    e.preventDefault();
-    this.setState({
-      image_path: e.target.files[0],
-    });
   };
 
   myChangeHandler = (event) => {
@@ -105,79 +90,55 @@ export default class NewProduct extends Component {
           >
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
-                Add Product
+                Shipping Address
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  Name:{" "}
+                  Full Name:{" "}
                   <input
                     type="text"
                     onChange={this.myChangeHandler}
                     name="name"
                     value={this.state.name}
                     className="form-control"
-                    placeholder="Name"
+                    placeholder="Full Name"
                     required={true}
                   />
                 </div>
                 <div className="form-group">
-                  Product Prices:{" "}
+                  Address:{" "}
                   <input
                     type="text"
                     onChange={this.myChangeHandler}
-                    name="price"
+                    name="address"
                     className="form-control"
-                    placeholder="Product Prices"
-                    required={true}
-                  />
-                </div>
-
-                <div className="form-group">
-                  Description:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="details"
-                    className="form-control"
-                    placeholder="Description"
+                    placeholder="Address"
                     required={true}
                   />
                 </div>
 
                 <div className="form-group">
-                  Metal:{" "}
+                  Zip Code:{" "}
                   <input
                     type="text"
                     onChange={this.myChangeHandler}
-                    name="metal"
+                    name="zip"
                     className="form-control"
-                    placeholder="Metal"
+                    placeholder="Zip Code"
                     required={true}
                   />
                 </div>
 
                 <div className="form-group">
-                  category:{" "}
+                  City:{" "}
                   <input
                     type="text"
                     onChange={this.myChangeHandler}
-                    name="category"
+                    name="city"
                     className="form-control"
-                    placeholder="Category"
-                    required={true}
-                  />
-                </div>
-
-                <div className="form-group">
-                  gender:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="gender"
-                    className="form-control"
-                    placeholder="gender"
+                    placeholder="City"
                     required={true}
                   />
                 </div>
@@ -193,23 +154,13 @@ export default class NewProduct extends Component {
                     required={true}
                   />
                 </div>
-                <div className="form-group">
-                  Image:{" "}
-                  <input
-                    type="file"
-                    onChange={this.singleFileChangeHandler}
-                    name="image_path"
-                    className="form-control"
-                    placeholder="Image Path"
-                  />
-                </div>
                 <button
                   className="btn-customBtn"
                   type="submit"
                   onClick={this.props.onHide}
                   //   className="homebtn"
                 >
-                  Submit
+                  Continue
                 </button>
               </form>
             </Modal.Body>
