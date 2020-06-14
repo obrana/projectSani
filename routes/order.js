@@ -13,9 +13,9 @@ connection.query(query, function (error, results)
 });
 
 
-Router.get('/orderdetail/:id', function (req, res) {
-    var id = req.params.id;
-    var query = `SELECT * FROM orders where orders.id = ${id}`;
+Router.get('/orderdetail/:order_id', function (req, res) {
+    var order_id = req.params.order_id;
+    var query = `SELECT * FROM orders where orders.order_id = ${order_id}`;
     connection.query(query, function (error, results) {
         if (error) throw error;
         res.json(results);
@@ -23,9 +23,9 @@ Router.get('/orderdetail/:id', function (req, res) {
 });
  
 
-Router.get('/orders/:id', function (req, res, next){
+Router.get('/orders/:order_id', function (req, res, next){
     
-    connection.query('SELECT * FROM orders where id = ? ', req.params.id, function(err, rows, fields){
+    connection.query('SELECT * FROM orders where order_id = ? ', req.params.order_id, function(err, rows, fields){
         if(!err)
         res.status(200).json({
             status: 'success',
@@ -39,18 +39,18 @@ Router.get('/orders/:id', function (req, res, next){
     });
 });
 
-
-Router.delete('/orders/:id', function (req, res, next){  
-    var id = req.params.id;
+ 
+Router.delete('/orders/:order_id', function (req, res, next){  
+    var order_id = req.params.order_id;
     
-   connection.query(`DELETE FROM orders where id = '${id}'`, function(error, results, fields){
+   connection.query(`DELETE FROM orders where order_id = '${order_id}'`, function(error, results, fields){
         if(error) throw error; 
         res.send(JSON.stringify(results)); 
     }); 
 });
 
-
-
+ 
+ 
 Router.post('/neworder', (req, res) => {
     var order_id = req.body.order_id;
     var name = req.body.name; 
@@ -58,9 +58,10 @@ Router.post('/neworder', (req, res) => {
     var zip = req.body.zip;
     var city = req.body.city;
     var ordernumber = req.body.ordernumber; 
+    var product_id = req.body.product_id;
   
   
-     var query = `INSERT INTO orders (order_id, name, address, zip, city, ordernumber) VALUES ("${order_id}", "${name}", "${address}", "${zip}", "${city}", "${ordernumber}")`;
+     var query = `INSERT INTO orders (order_id, name, address, zip, city, ordernumber, product_id) VALUES ("${order_id}", "${name}", "${address}", "${zip}", "${city}", "${ordernumber}", "${product_id}")`;
    connection.query(query, (err, rows) => {
         if (!err) {
             console.log(query, rows);
