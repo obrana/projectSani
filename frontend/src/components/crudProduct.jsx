@@ -15,6 +15,7 @@ export default class CrudProduct extends React.Component {
       products: [],
       addModalShow: false,
       editModalShow: false,
+   
     };
   }
 
@@ -165,14 +166,15 @@ export default class CrudProduct extends React.Component {
                         );
                       })}
                     </tbody>
-                  </Table>
+                  </Table> 
                 </div>
               </div>
             </div>
           </div>
         </Container>
-        <Footer />
+         <Footer />
       </main>
     );
   }
 }
+

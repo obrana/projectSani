@@ -5,17 +5,6 @@ var upload = require('../aws_service');
 
 const singleUpload = upload.single('image_path');
 
-
-// Router.post('/image-upload', function(req, res){
-//     singleUpload(req, res, function(err){
-//         return res.json({'imageUrl': req.file.location}); 
-//     })
-// })
-
-
-
-
-
 Router.get('/products', function (req, res){
     var query="SELECT * FROM products";
 connection.query(query, function (error, results) 
@@ -125,8 +114,6 @@ Router.post('/new', singleUpload, (req, res) => {
     var unit = req.body.unit;
     var price = req.body.price;  
     var image_path = req.file.key; 
-     
-
      var query = `INSERT INTO products (id, name, price, details, metal, category, gender, unit, image_path) VALUES ("${id}", "${name}", "${price}", "${details}", "${metal}", "${category}", "${gender}", "${unit}", "${image_path}")`;
     // var query = `call create_procedure ('${product_name}', '${product_details}', '${categories}', '${metal}', '${product_images}', '${price}', '${unit}', '${gender}')`;
    connection.query(query, (err, rows) => {
