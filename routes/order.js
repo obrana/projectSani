@@ -52,14 +52,15 @@ Router.delete('/orders/:id', function (req, res, next){
 
 
 Router.post('/neworder', (req, res) => {
-    var id = req.body.id;
+    var order_id = req.body.order_id;
     var name = req.body.name; 
     var address = req.body.address;
     var zip = req.body.zip;
     var city = req.body.city;
     var ordernumber = req.body.ordernumber; 
   
-     var query = `INSERT INTO orders (id, name, address, zip, city, ordernumber) VALUES ("${id}", "${name}", "${address}", "${zip}", "${city}", "${ordernumber}")`;
+  
+     var query = `INSERT INTO orders (order_id, name, address, zip, city, ordernumber) VALUES ("${order_id}", "${name}", "${address}", "${zip}", "${city}", "${ordernumber}")`;
    connection.query(query, (err, rows) => {
         if (!err) {
             console.log(query, rows);
