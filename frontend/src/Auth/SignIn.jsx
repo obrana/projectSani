@@ -7,7 +7,6 @@ import Footer from "../components/footer";
 import Application from "../Auth/Application";
 import UserProvider from "../providers/UserProvider";
 
-
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,11 +14,9 @@ const SignIn = () => {
 
   const signInWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
-    auth.signInWithEmailAndPassword(email, password)
-    .catch((error) => { 
+    auth.signInWithEmailAndPassword(email, password).catch((error) => {
       setError("Error signing in with password and email!");
       console.error("Error signing in with password and email", error);
-   
     });
   };
 
@@ -35,18 +32,18 @@ const SignIn = () => {
 
   return (
     <>
-     <UserProvider>
+      <UserProvider>
         <Application />
       </UserProvider>
-       
-      <div className="mt-8 login-credentials">
+
+      <div className="mt-8 login-credentials fadeInDown">
         <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
           {error !== null && (
             <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
               {error}
             </div>
           )}
-          <form className="" >
+          <form className="">
             <h1 className="customTitle">
               Already a member? Login to your account
             </h1>
@@ -77,9 +74,7 @@ const SignIn = () => {
               className="bg-green-400 hover:bg-green-500 w-full py-2 text-white btn-customBtn"
               onClick={(event) => {
                 signInWithEmailAndPasswordHandler(event, email, password);
-              
               }}
-            
             >
               Sign in
             </button>
@@ -116,9 +111,8 @@ const SignIn = () => {
             </a> */}
           </p>
         </div>
-      
       </div>
-     
+
       <Footer />
     </>
   );

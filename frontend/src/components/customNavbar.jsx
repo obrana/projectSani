@@ -4,7 +4,6 @@ import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
 import "./customNavbar.css";
 import { NavLink } from "react-router-dom";
 
-
 export default class CustomNavbar extends Component {
   render() {
     return (
@@ -17,8 +16,13 @@ export default class CustomNavbar extends Component {
           expand="lg"
           bg="dark"
           variant="dark"
-        // fixed="top"
+          // fixed="top"
         >
+          <div className="logo">
+            <NavLink to="/">
+              <Image src="assets/logo.png" />
+            </NavLink>
+          </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
@@ -45,7 +49,7 @@ export default class CustomNavbar extends Component {
             </Nav>
             <Navbar.Brand>
               <NavLink to="/">
-                <Image src="/assets/logo.png" />
+                <Image src="assets/logo.png" />
               </NavLink>
             </Navbar.Brand>
 
@@ -62,15 +66,19 @@ export default class CustomNavbar extends Component {
                     <NavLink to="/signUp">Register</NavLink>
                   </NavDropdown.Item>
                 </NavDropdown>
+
+                <Nav.Link>
+                  <NavLink to="#">
+                    <i class="fas fa-shopping-cart"></i>
+                  </NavLink>
+                </Nav.Link>
                 {/* <Nav.Link>
                 <UserProvider>
                   <Application/>
                 </UserProvider>
-              </Nav.Link> */}  
+              </Nav.Link> */}
               </Nav>
             </Nav>
-
-
           </Navbar.Collapse>
         </Navbar>
       </main>

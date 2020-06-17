@@ -12,6 +12,10 @@
 a {
   color: palevioletred;
 }
+a:hover {
+  color: palevioletred;
+  text-decoration: none;
+}
 .btn-customButton {
   border: 1px solid #8dca0a !important;
   border-radius: 0px !important;
@@ -85,4 +89,9 @@ a {
 .card-img {
   border: 0 none !important;
   border-radius: 0px !important;
+}
+@media (max-width: 991px) {
+  .introText {
+    width: 100%;
+  }
 }
