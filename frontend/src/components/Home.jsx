@@ -7,6 +7,8 @@ import Footer from "../components/footer";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
 import { Fade } from "react-slideshow-image";
+import { NavLink } from "react-router-dom";
+
 import "./home.css";
 
 const images = [
@@ -109,7 +111,9 @@ export default class Home extends Component {
                     Explore our designs
                   </Card.Title>
                   <Card.Text>There is no harm in looking! :)</Card.Text>
-                  <Button variant="customButton">Shop Now</Button>
+                  <NavLink to="/products">
+                    <Button variant="customButton">Shop Now</Button>
+                  </NavLink>
                 </Card.Body>
               </Card>{" "}
             </Card.Body>
@@ -117,21 +121,35 @@ export default class Home extends Component {
 
           <CardGroup>
             <Card>
-              <Card.Img variant="top" src="assets/rings.jpg" />
+              <NavLink to="/products">
+                <Card.Img variant="top" src="assets/rings.jpg" />
+              </NavLink>
               <Card.Body>
-                <Card.Title>Ring</Card.Title>
+                <Card.Title>
+                  <NavLink to="/products">Rings</NavLink>
+                </Card.Title>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img variant="top" src="assets/earrings.jpg" />
+              <NavLink to="/products">
+                <Card.Img variant="top" src="assets/earrings.jpg" />
+              </NavLink>
               <Card.Body>
-                <Card.Title>Earring</Card.Title>
+                <Card.Title>
+                  {" "}
+                  <NavLink to="/products">Earrings</NavLink>
+                </Card.Title>
               </Card.Body>
             </Card>
             <Card>
-              <Card.Img variant="top" src="assets/necklace.jpg" />
+              <NavLink to="/products">
+                <Card.Img variant="top" src="assets/necklace.jpg" />
+              </NavLink>
               <Card.Body>
-                <Card.Title>Necklace</Card.Title>
+                <Card.Title>
+                  {" "}
+                  <NavLink to="/products">Necklace</NavLink>
+                </Card.Title>
               </Card.Body>
             </Card>
           </CardGroup>
