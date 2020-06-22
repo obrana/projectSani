@@ -19,6 +19,7 @@ export default class Basket extends Component {
     let editModalClose = () => this.setState({ editModalShow: false });
     return (
       <div className="alert alert-info basket">
+        <h2>Shopping Bag</h2>
         {cartItems.length === 0 ? (
           "Basket is empty"
         ) : (
@@ -29,20 +30,28 @@ export default class Basket extends Component {
             <ul>
               {cartItems.map((item) => (
                 <li>
-                  <b>{item.name}</b> X {item.count} ={" "}
+                    <img className="itemImg"
+                        src={
+                          "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
+                          item.image_path
+                        }
+                      />
+                  <b>{item.name}</b> X {item.count} ={" "} 
                   <b>{item.price * item.count}</b>
                   DKK
                   <a
                     className="delLink"
                     onClick={() => this.props.handleRemoveFromCart(item)}
                   >
-                    Remove item
+                    <i class="fas fa-trash">
+                 
+                 </i>
                   </a>
                 </li>
               ))}
             </ul>
             <b>
-              Total: {cartItems.reduce((a, c) => a + c.price * c.count, 1)} DKK
+              Total: {cartItems.reduce((a, c) => a + c.price * c.count, 0)} DKK
             </b>
             <br />
             <Button

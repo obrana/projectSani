@@ -4,6 +4,7 @@ import { navigate } from "@reach/router";
 import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 
+
 import "./auth.css";
 import Footer from "../components/footer";
 
@@ -45,6 +46,7 @@ const ProfilePage = () => {
         <div className="col-md-8 accountdetail">
           <h2>My Order History</h2>
         </div>
+        
       </div>
     </main>
   );

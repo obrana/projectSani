@@ -172,7 +172,7 @@ export default class CrudProduct extends React.Component {
             </div>
           </div>
         </Container>
-         <Footer />
+       
       </main>
     );
   }
