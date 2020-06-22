@@ -5,7 +5,6 @@ import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 import CrudProduct from "../components/crudProduct";
 
-
 import "./auth.css";
 import Footer from "../components/footer";
 
@@ -44,11 +43,10 @@ const ProfilePage = () => {
             </button>{" "}
           </div>
         </div>
-        <div className="col-md-8 accountdetail">
+        <div className="col-md-10 accountdetail">
           <h2>Product List</h2>
           <CrudProduct />
         </div>
-        
       </div>
     </main>
   );
