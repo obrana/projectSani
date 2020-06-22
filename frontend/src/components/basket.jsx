@@ -42,7 +42,7 @@ export default class Basket extends Component {
               ))}
             </ul>
             <b>
-              Total: {cartItems.reduce((a, c) => a + c.price * c.count, 0)} DKK
+              Total: {cartItems.reduce((a, c) => a + c.price * c.count, 1)} DKK
             </b>
             <br />
             <Button

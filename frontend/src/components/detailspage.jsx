@@ -7,7 +7,7 @@ import {
   Image,
   Container,
   ButtonToolbar,
-  Table,
+  Table, 
 } from "react-bootstrap";
 import Basket from "../components/basket";
 import "./product.css";

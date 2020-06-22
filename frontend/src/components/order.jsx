@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
