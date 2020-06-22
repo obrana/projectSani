@@ -154,6 +154,51 @@ export default class Home extends Component {
             </Card>
           </CardGroup>
 
+          <div className="home-heading">
+            <h3>Why Sani?</h3>
+          </div>
+          <br />
+          <div className="row about-row ">
+            <Card className="text-center cardrow">
+              <Card.Body>
+                <span className="icon-ad">
+                  <i class="fas fa-usd"></i>
+                </span>
+                <br />
+                <Card.Text>Transparent Online Pricing</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center cardrow">
+              <Card.Body>
+                <span className="icon-ad">
+                  <i class="fas fa-certificate"></i>
+                </span>
+                <br />
+
+                <Card.Text>Authentic Certification</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center cardrow">
+              <Card.Body>
+                <span className="icon-ad">
+                  <i class="fas fa-heart"></i>{" "}
+                </span>
+                <br />
+
+                <Card.Text>Gold Value</Card.Text>
+              </Card.Body>
+            </Card>
+            <Card className="text-center cardrow">
+              <Card.Body>
+                <span className="icon-ad">
+                  <i class="fas fa-home"></i>{" "}
+                </span>
+                <br />
+
+                <Card.Text>Try it at Home</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
           <Card className="imageCard">
             <Card.Img src="assets/cardimg.jpg" alt="Card image" />
             <Card.ImgOverlay>
