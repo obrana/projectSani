@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import Card from "react-bootstrap/Card";
 import Footer from "../components/footer";
+import { NavLink } from "react-router-dom";
 import {
   Button,
   Image,
@@ -69,6 +70,9 @@ class DetailPage extends Component {
                 cartItems={this.state.cartItems}
                 handleRemoveFromCart={this.handleRemoveFromCart}
               />
+                 <Button >    
+                <NavLink to="/order" type="button" >Proceed to Payment</NavLink>
+                </Button>
             </div>
 
             {this.state.products.map((product) => (

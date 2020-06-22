@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import Order from "../components/order";
 import "./product.css";
+import { NavLink } from "react-router-dom";
 
 export default class Basket extends Component {
   constructor(props) {
@@ -54,17 +55,18 @@ export default class Basket extends Component {
               Total: {cartItems.reduce((a, c) => a + c.price * c.count, 0)} DKK
             </b>
             <br />
-            <Button
+            {/* <Button
                       className="btn-customBtn"
                       variant="primary"
-                      onClick={() => this.setState({ addModalShow: true })}
+                      // onClick={() => this.setState({ addModalShow: true })}
                     >
                       Proceed to payment
-                    </Button>
-            <Order
+                    </Button> */}
+             
+            {/* <Order
                       show={this.state.addModalShow}
                       onHide={addModalClose}
-                    />
+                    /> */}
           </div>
         )}
       </div>

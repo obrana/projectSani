@@ -3,6 +3,7 @@ import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import "./crudProduct.css";
+import Basket from "../components/basket";
 
 
 export default class Order extends Component {
@@ -15,8 +16,11 @@ export default class Order extends Component {
       city: "",
       ordernumber: "",
       product_id: "",
-      orders: [],
+      cartItems: [],
+      
     };
+    this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
     // this.myChangeHandler = this.myChangeHandler.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -33,10 +37,6 @@ export default class Order extends Component {
     data.append("product_id", this.state.product_id);
     fetch("/neworder", {
       method: "POST",
-      // headers: {
-      //     'Content-Type': 'application/json',
-      // },
-      // body: JSON.stringify(this.state)
       body: data,
     })
       .then((response) => response.data)
@@ -48,10 +48,9 @@ export default class Order extends Component {
           this.setState({ snackbaropen: true, snackbarmsg: "failed" });
         }
       );
-    // .then(req => {
-    //     this.props.history.push("/products");
-    // });
+ 
   };
+
 
   myChangeHandler = (event) => {
     event.preventDefault();
@@ -60,7 +59,41 @@ export default class Order extends Component {
 
     this.setState({ [nam]: val });
   };
-
+  componentDidMount() {
+    var id = this.props.match.params.id;
+    fetch(`/productdetail/${id}`)
+      .then((res) => res.json())
+      .then((products) => this.setState({ products }));
+    if (localStorage.getItem("cartItems")) {
+      this.setState({
+        cartItems: JSON.parse(localStorage.getItem("cartItems")),
+      });
+    }
+  }
+  handleAddToCart(product) {
+    this.setState((state) => {
+      const cartItems = state.cartItems;
+      let productAlreadyInCart = false;
+      cartItems.forEach((item) => {
+        if (item.id === product.id) {
+          productAlreadyInCart = true;
+          item.count++;
+        }
+      });
+      if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 0 });
+      }
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      return cartItems;
+    });
+  }
+  handleRemoveFromCart(item) {
+    this.setState((state) => {
+      const cartItems = state.cartItems.filter((elm) => elm.id !== item.id);
+      localStorage.setItem("cartItems", cartItems);
+      return { cartItems };
+    });
+  }
   render() {
     const { cartItems } = this.props;
     return (
@@ -169,12 +202,16 @@ export default class Order extends Component {
                 </button>
               </form>
             </div>
-            <div className="col-md-2">
+            <div className="col-md-4">
               <h3>Order Summary</h3>
+              <Basket
+                cartItems={this.state.cartItems}
+                handleRemoveFromCart={this.handleRemoveFromCart}
+              />
             </div>
           </div>
         </div>
-      </>
+      </> 
     );
   }
 }

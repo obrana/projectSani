@@ -13,6 +13,8 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import newProduct from "./components/newProduct";
 import crudProduct from "./components/crudProduct";
+import Order from "./components/order";
+
 
 import DetailPage from "./components/detailspage";
 
@@ -33,6 +35,7 @@ class App extends Component {
             <Route exact path="/newProduct" component={newProduct} />
             <Route exact path="/crudProduct" component={crudProduct} />
             <Route exact path="/detailpage/:id" component={DetailPage} />
+            <Route excat path="/order" component={Order}/>
 
             <Route exact path="/" component={Home} />
           </Switch>
