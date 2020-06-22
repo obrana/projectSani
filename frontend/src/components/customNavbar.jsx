@@ -58,15 +58,18 @@ export default class CustomNavbar extends Component {
               <Nav.Link>
                 <NavLink to="Contact">Contact Us</NavLink>
               </Nav.Link>
+              <Nav.Link>
+                <NavLink to="/signIn">Admin</NavLink>
+              </Nav.Link>
               <Nav>
-                <NavDropdown title="account">
+                {/* <NavDropdown title="account">
                   <NavDropdown.Item>
                     <NavLink to="/signIn">SignIn</NavLink>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
                     <NavLink to="/signUp">Register</NavLink>
                   </NavDropdown.Item>
-                </NavDropdown>
+                </NavDropdown> */}
 
                 <Nav.Link>
                   <NavLink to="#">

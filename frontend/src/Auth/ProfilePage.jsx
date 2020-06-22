@@ -3,6 +3,7 @@ import { UserContext } from "../providers/UserProvider";
 import { navigate } from "@reach/router";
 import { auth } from "../firebase";
 import { Link } from "react-router-dom";
+import CrudProduct from "../components/crudProduct";
 
 
 import "./auth.css";
@@ -44,7 +45,8 @@ const ProfilePage = () => {
           </div>
         </div>
         <div className="col-md-8 accountdetail">
-          <h2>My Order History</h2>
+          <h2>Product List</h2>
+          <CrudProduct />
         </div>
         
       </div>

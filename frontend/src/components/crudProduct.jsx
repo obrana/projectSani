@@ -15,7 +15,6 @@ export default class CrudProduct extends React.Component {
       products: [],
       addModalShow: false,
       editModalShow: false,
-   
     };
   }
 
@@ -66,7 +65,6 @@ export default class CrudProduct extends React.Component {
 
     return (
       <main>
-      
         <Container className="crudProduct">
           <div className="container">
             <div className="panel panel-default p50 uth-panel">
@@ -166,15 +164,13 @@ export default class CrudProduct extends React.Component {
                         );
                       })}
                     </tbody>
-                  </Table> 
+                  </Table>
                 </div>
               </div>
             </div>
           </div>
         </Container>
-       
       </main>
     );
   }
 }
-
