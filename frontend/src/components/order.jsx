@@ -15,12 +15,11 @@ export default class Order extends Component {
       city: "",
       ordernumber: "",
       product_id: "",
-      orders: []
+      orders: [],
     };
     // this.myChangeHandler = this.myChangeHandler.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
-
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -84,111 +83,96 @@ export default class Order extends Component {
           ]}
         />
         <div className="container">
-          <Modal
+          <div
             {...this.props}
             size="lg"
             aria-labellebdy="contained-modal-title-vcenter"
             centered
-          >
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Shipping Address
-              </Modal.Title>
-            </Modal.Header>
-            <div className="row">
-              <div className="col-md-8">
+          ></div>
+          <div closeButton>
+            <div id="contained-modal-title-vcenter">Shipping Address</div>
+          </div>
+          <div className="row">
+            <div className="col-md-8">
+              <form onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                  Full Name:{" "}
+                  <input
+                    type="text"
+                    onChange={this.myChangeHandler}
+                    name="name"
+                    value={this.state.name}
+                    className="form-control"
+                    placeholder="Full Name"
+                    required={true}
+                  />
+                </div>
+                <div className="form-group">
+                  Address:{" "}
+                  <input
+                    type="text"
+                    onChange={this.myChangeHandler}
+                    name="address"
+                    className="form-control"
+                    placeholder="Address"
+                    required={true}
+                  />
+                </div>
 
+                <div className="form-group">
+                  Zip Code:{" "}
+                  <input
+                    type="text"
+                    onChange={this.myChangeHandler}
+                    name="zip"
+                    className="form-control"
+                    placeholder="Zip Code"
+                    required={true}
+                  />
+                </div>
 
-                <Modal.Body>
-                  <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                      Full Name:{" "}
-                      <input
-                        type="text"
-                        onChange={this.myChangeHandler}
-                        name="name"
-                        value={this.state.name}
-                        className="form-control"
-                        placeholder="Full Name"
-                        required={true}
-                      />
-                    </div>
-                    <div className="form-group">
-                      Address:{" "}
-                      <input
-                        type="text"
-                        onChange={this.myChangeHandler}
-                        name="address"
-                        className="form-control"
-                        placeholder="Address"
-                        required={true}
-                      />
-                    </div>
+                <div className="form-group">
+                  City:{" "}
+                  <input
+                    type="text"
+                    onChange={this.myChangeHandler}
+                    name="city"
+                    className="form-control"
+                    placeholder="City"
+                    required={true}
+                  />
+                </div>
+                <div className="form-group">
+                  <h3>Shipping Method</h3>
+                  <p> Complimentary Express Delivery signature</p>
+                </div>
+                <div className="form-group">
+                  <h3>Gift Message(optional)</h3>
 
-                    <div className="form-group">
-                      Zip Code:{" "}
-                      <input
-                        type="text"
-                        onChange={this.myChangeHandler}
-                        name="zip"
-                        className="form-control"
-                        placeholder="Zip Code"
-                        required={true}
-                      />
-                    </div>
-
-                    <div className="form-group">
-                      City:{" "}
-                      <input
-                        type="text"
-                        onChange={this.myChangeHandler}
-                        name="city"
-                        className="form-control"
-                        placeholder="City"
-                        required={true}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <h3>Shipping Method</h3>
-                      <p> Complimentary Express Delivery signature</p>
-                    </div>
-                    <div className="form-group">
-                      <h3>Gift Message(optional)</h3>
-
-                      <input
-                        type="text"
-                        onChange={this.myChangeHandler}
-                        name="city"
-                        className="form-control"
-                        placeholder="Write your message here"
-                        row="4"
-                        as="textarea"
-
-                      />
-                    </div>
-                    <button
-                      className="btn-customBtn"
-                      type="submit"
-                      onClick={this.props.onHide}
-                    //   className="homebtn"
-                    >
-                      Continue
+                  <input
+                    type="text"
+                    onChange={this.myChangeHandler}
+                    name="city"
+                    className="form-control"
+                    placeholder="Write your message here"
+                    row="4"
+                    as="textarea"
+                  />
+                </div>
+                <button
+                  className="btn-customBtn"
+                  type="submit"
+                  onClick={this.props.onHide}
+                  //   className="homebtn"
+                >
+                  Continue
                 </button>
-                  </form>
-
-
-                </Modal.Body>
-              </div>
-              <div className="col-md-2">
-                <h3>Order Summary</h3>
-           
-              </div>
+              </form>
             </div>
-
-            <Modal.Footer></Modal.Footer>
-          </Modal>
-
-
+            <div className="col-md-2">
+              <h3>Order Summary</h3>
+            </div>
+          </div>
         </div>
       </>
     );

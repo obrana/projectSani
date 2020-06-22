@@ -65,111 +65,106 @@ export default class CrudProduct extends React.Component {
 
     return (
       <main>
-        <Container className="crudProduct">
-          <div className="container">
-            <div className="panel panel-default p50 uth-panel">
-              <div className="row">
-                <div className="col-md-2 addProd">
-                  <ButtonToolbar>
-                    <Button
-                      className="btn-customBtn"
-                      variant="primary"
-                      onClick={() => this.setState({ addModalShow: true })}
-                    >
-                      Add Product
-                    </Button>
-                    <NewProduct
-                      show={this.state.addModalShow}
-                      onHide={addModalClose}
-                    />
-                    <EditProduct
-                      show={this.state.editModalShow}
-                      onHide={editModalClose}
-                      pid={pid}
-                      pname={pname}
-                      pprice={pprice}
-                      pdetails={pdetails}
-                      pmetal={pmetal}
-                      pcategory={pcategory}
-                      pgender={pgender}
-                      punit={punit}
-                    />
-                  </ButtonToolbar>
-                </div>
-                <div className="col-md-10">
-                  <Table className="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Product name</th>
-                        <th>Price</th>
-                        <th>Details</th>
-                        <th>Metal</th>
-                        <th>Category</th>
-                        <th>Gender</th>
-                        <th>Unit</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {this.state.products.map((product) => {
-                        return (
-                          <tr key={product.id}>
-                            <td>{product.name} </td>
-                            <td>{product.price}</td>
-                            <td>{product.details}</td>
-                            <td>{product.metal}</td>
-                            <td>{product.category}</td>
-                            <td>{product.gender}</td>
-                            <td>{product.unit}</td>
-                            <td>
-                              <img
-                                src={
-                                  "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
-                                  product.image_path
-                                }
-                              />
-                            </td>
-
-                            <td>
-                              <a
-                                className="editLink"
-                                variant="info"
-                                onClick={() =>
-                                  this.setState({
-                                    editModalShow: true,
-                                    pid: product.id,
-                                    pname: product.name,
-                                    pprice: product.price,
-                                    pdetails: product.details,
-                                    pmetal: product.metal,
-                                    pcategory: product.category,
-                                    pgender: product.gender,
-                                    punit: product.unit,
-                                  })
-                                }
-                              >
-                                Edit
-                              </a>
-                              &nbsp;
-                              <a
-                                className="delLink"
-                                variant="danger"
-                                onClick={() => this.deleteProduct(product.id)}
-                              >
-                                Delete
-                              </a>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-            </div>
+        <div className="crudProduct">
+          <div className="addProd">
+            <ButtonToolbar>
+              <Button
+                className="btn-customBtn"
+                variant="primary"
+                onClick={() => this.setState({ addModalShow: true })}
+              >
+                Add Product
+              </Button>
+              <br />
+              <NewProduct
+                show={this.state.addModalShow}
+                onHide={addModalClose}
+              />
+              <EditProduct
+                show={this.state.editModalShow}
+                onHide={editModalClose}
+                pid={pid}
+                pname={pname}
+                pprice={pprice}
+                pdetails={pdetails}
+                pmetal={pmetal}
+                pcategory={pcategory}
+                pgender={pgender}
+                punit={punit}
+              />
+            </ButtonToolbar>
           </div>
-        </Container>
+          <div className="productTable">
+            <Table className="table table-hover">
+              <thead>
+                <tr>
+                  <th>Product name</th>
+                  <th>Price</th>
+                  <th>Details</th>
+                  <th>Metal</th>
+                  <th>Category</th>
+                  <th>Gender</th>
+                  <th>Unit</th>
+                  <th>Image</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.products.map((product) => {
+                  return (
+                    <tr key={product.id}>
+                      <td>{product.name} </td>
+                      <td>{product.price}</td>
+                      <td>{product.details}</td>
+                      <td>{product.metal}</td>
+                      <td>{product.category}</td>
+                      <td>{product.gender}</td>
+                      <td>{product.unit}</td>
+                      <td>
+                        <img
+                          src={
+                            "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
+                            product.image_path
+                          }
+                        />
+                      </td>
+
+                      <td>
+                        <a
+                          className="editLink"
+                          variant="info"
+                          onClick={() =>
+                            this.setState({
+                              editModalShow: true,
+                              pid: product.id,
+                              pname: product.name,
+                              pprice: product.price,
+                              pdetails: product.details,
+                              pmetal: product.metal,
+                              pcategory: product.category,
+                              pgender: product.gender,
+                              punit: product.unit,
+                            })
+                          }
+                        >
+                          Edit
+                        </a>
+                        &nbsp;
+                        <a
+                          className="delLink"
+                          variant="danger"
+                          onClick={() => this.deleteProduct(product.id)}
+                        >
+                          Delete
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div>
+        </div>
       </main>
     );
   }
