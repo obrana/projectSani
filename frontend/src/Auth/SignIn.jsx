@@ -45,7 +45,7 @@ const SignIn = () => {
           )}
           <form className="">
             <h1 className="customTitle">
-              Already a member? Login to your account
+              {/* Already a member? Login to your account */}
             </h1>
 
             <label htmlFor="userEmail" className="block">
@@ -79,7 +79,7 @@ const SignIn = () => {
               Sign in
             </button>
           </form>
-          <p className="text-center my-3">or</p>
+          {/* <p className="text-center my-3">or</p>
           <button
             className="bg-red-500 hover:bg-red-600 w-full py-2 text-white btn-customBtn"
             onClick={() => {
@@ -87,13 +87,13 @@ const SignIn = () => {
             }}
           >
             Sign in with Google
-          </button>
+          </button> */}
           <p className="text-center my-3">
-            Don't have an account?
+            {/* Don't have an account?
             <br />
             <Link to="/signUp" className="text-blue-500 hover:text-blue-600">
               Sign up here
-            </Link>
+            </Link> */}
             {/* <a href="signUp" className="text-blue-500 hover:text-blue-600">
               Sign up here
             </a> */}
