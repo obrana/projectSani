@@ -11,11 +11,7 @@ import { NavLink } from "react-router-dom";
 
 function Application() {
   const user = useContext(UserContext);
-  return user ? (
-    <ProfilePage />
-  ) : 
-  <>
-  </>
+  return user ? <ProfilePage /> : <></>;
 }
 
 export default Application;
