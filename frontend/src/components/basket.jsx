@@ -30,12 +30,12 @@ export default class Basket extends Component {
             <ul>
               {cartItems.map((item) => (
                 <li>
-                    <img className="itemImg"
+                    {/* <img className="itemImg"
                         src={
                           "https://sammenligne.s3.eu-central-1.amazonaws.com/" +
                           item.image_path
                         }
-                      />
+                      /> */}
                   <b>{item.name}</b> X {item.count} ={" "} 
                   <b>{item.price * item.count}</b>
                   DKK
@@ -43,9 +43,9 @@ export default class Basket extends Component {
                     className="delLink"
                     onClick={() => this.props.handleRemoveFromCart(item)}
                   >
-                    <i class="fas fa-trash">
+                   Remove Item
                  
-                 </i>
+                 
                   </a>
                 </li>
               ))}
