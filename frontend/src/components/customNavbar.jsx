@@ -3,9 +3,10 @@ import { Navbar, Nav, Image, NavDropdown, Container } from "react-bootstrap";
 
 import "./customNavbar.css";
 import { NavLink } from "react-router-dom";
-
+import Basket from "../components/basket";
 export default class CustomNavbar extends Component {
   render() {
+    const { cartItems } = this.props;
     return (
       <main>
         <div className="topBar">
@@ -72,7 +73,9 @@ export default class CustomNavbar extends Component {
 
                 <Nav.Link>
                   <NavLink to="#">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart">
+                 
+                    </i>
                   </NavLink>
                 </Nav.Link>
                 {/* <Nav.Link>

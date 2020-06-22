@@ -5,6 +5,7 @@ import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 import CrudProduct from "../components/crudProduct";
 
+
 import "./auth.css";
 import Footer from "../components/footer";
 
@@ -47,6 +48,7 @@ const ProfilePage = () => {
           <h2>Product List</h2>
           <CrudProduct />
         </div>
+        
       </div>
     </main>
   );

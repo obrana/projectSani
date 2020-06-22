@@ -47,7 +47,7 @@ export default class Home extends Component {
                 <p>
                   Elegant craftsmanship with standard material is what you need
                 </p>
-              </Carousel.Caption>
+              </Carousel.Caption> 
             </div>
 
             <div className="image-container">
@@ -57,7 +57,7 @@ export default class Home extends Component {
                 <p>No hidden cost, no markups, just luxury</p>
               </Carousel.Caption>
             </div>
-
+ 
             <div className="image-container">
               <img src={images[3]} />
               <Carousel.Caption>

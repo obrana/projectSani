@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import "./crudProduct.css";
+import Basket from "../components/basket";
 
 export default class Order extends Component {
   constructor(props) {
@@ -15,6 +15,7 @@ export default class Order extends Component {
       city: "",
       ordernumber: "",
       product_id: "",
+      orders: []
     };
     // this.myChangeHandler = this.myChangeHandler.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -62,6 +63,7 @@ export default class Order extends Component {
   };
 
   render() {
+    const { cartItems } = this.props;
     return (
       <>
         <Snackbar
@@ -93,79 +95,100 @@ export default class Order extends Component {
                 Shipping Address
               </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  Full Name:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="name"
-                    value={this.state.name}
-                    className="form-control"
-                    placeholder="Full Name"
-                    required={true}
-                  />
-                </div>
-                <div className="form-group">
-                  Address:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="address"
-                    className="form-control"
-                    placeholder="Address"
-                    required={true}
-                  />
-                </div>
+            <div className="row">
+              <div className="col-md-8">
 
-                <div className="form-group">
-                  Zip Code:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="zip"
-                    className="form-control"
-                    placeholder="Zip Code"
-                    required={true}
-                  />
-                </div>
 
-                <div className="form-group">
-                  City:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="city"
-                    className="form-control"
-                    placeholder="City"
-                    required={true}
-                  />
-                </div>
+                <Modal.Body>
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                      Full Name:{" "}
+                      <input
+                        type="text"
+                        onChange={this.myChangeHandler}
+                        name="name"
+                        value={this.state.name}
+                        className="form-control"
+                        placeholder="Full Name"
+                        required={true}
+                      />
+                    </div>
+                    <div className="form-group">
+                      Address:{" "}
+                      <input
+                        type="text"
+                        onChange={this.myChangeHandler}
+                        name="address"
+                        className="form-control"
+                        placeholder="Address"
+                        required={true}
+                      />
+                    </div>
 
-                <div className="form-group">
-                  unit:{" "}
-                  <input
-                    type="text"
-                    onChange={this.myChangeHandler}
-                    name="unit"
-                    className="form-control"
-                    placeholder="unit"
-                    required={true}
-                  />
-                </div>
-                <button
-                  className="btn-customBtn"
-                  type="submit"
-                  onClick={this.props.onHide}
-                  //   className="homebtn"
-                >
-                  Continue
+                    <div className="form-group">
+                      Zip Code:{" "}
+                      <input
+                        type="text"
+                        onChange={this.myChangeHandler}
+                        name="zip"
+                        className="form-control"
+                        placeholder="Zip Code"
+                        required={true}
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      City:{" "}
+                      <input
+                        type="text"
+                        onChange={this.myChangeHandler}
+                        name="city"
+                        className="form-control"
+                        placeholder="City"
+                        required={true}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <h3>Shipping Method</h3>
+                      <p> Complimentary Express Delivery signature</p>
+                    </div>
+                    <div className="form-group">
+                      <h3>Gift Message(optional)</h3>
+
+                      <input
+                        type="text"
+                        onChange={this.myChangeHandler}
+                        name="city"
+                        className="form-control"
+                        placeholder="Write your message here"
+                        row="4"
+                        as="textarea"
+
+                      />
+                    </div>
+                    <button
+                      className="btn-customBtn"
+                      type="submit"
+                      onClick={this.props.onHide}
+                    //   className="homebtn"
+                    >
+                      Continue
                 </button>
-              </form>
-            </Modal.Body>
+                  </form>
+
+
+                </Modal.Body>
+              </div>
+              <div className="col-md-2">
+                <h3>Order Summary</h3>
+           
+              </div>
+            </div>
+
             <Modal.Footer></Modal.Footer>
           </Modal>
+
+
         </div>
       </>
     );

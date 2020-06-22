@@ -91,6 +91,9 @@ img.card-img-top {
   cursor: pointer;
   padding-left: 10px;
 }
+.itemImg{
+  height: 50px;
+}
 a:hover.delLink {
   text-decoration: underline !important;
 }
