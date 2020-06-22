@@ -9,6 +9,30 @@
   width: 50%;
   margin: auto;
 }
+.about-row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 50px !important;
+}
+.about-row .card-body {
+  background: #eee;
+  border: 0 none !important;
+  border-color: #eee;
+  padding: 60px 0px 65px 0px;
+}
+.about-row .card-text {
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  text-transform: uppercase;
+}
+
+.cardrow {
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  margin-bottom: 1rem;
+  width: 285px !important;
+  margin: 0 auto 20px !important;
+  border: 0 none;
+}
 a {
   color: palevioletred;
 }
