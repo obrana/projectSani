@@ -75,6 +75,7 @@ export default class CrudProduct extends React.Component {
               >
                 Add Product
               </Button>
+              <br />
               <NewProduct
                 show={this.state.addModalShow}
                 onHide={addModalClose}
