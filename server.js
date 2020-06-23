@@ -43,5 +43,4 @@ app.use(function (err, req, res, next) {
 
 app.listen(process.env.PORT || 3001, () => {
   console.log("go to http://localhost:3000/products to see the products");
-});
- 
+}); 
