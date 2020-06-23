@@ -14,7 +14,7 @@ import Contact from "./components/Contact";
 import newProduct from "./components/newProduct";
 import crudProduct from "./components/crudProduct";
 import Order from "./components/order";
-
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import DetailPage from "./components/detailspage";
 
@@ -33,9 +33,11 @@ class App extends Component {
             <Route exact path="/ProfilePage" component={ProfilePage} />
             <Route exact path="/Contact" component={Contact} />
             <Route exact path="/newProduct" component={newProduct} />
-            <Route exact path="/crudProduct" component={crudProduct} />
+            <ProtectedRoute path="/crudProduct" component={crudProduct} />
+
+            {/* <Route exact path="/crudProduct" component={crudProduct} /> */}
             <Route exact path="/detailpage/:id" component={DetailPage} />
-            <Route excat path="/order" component={Order}/>
+            <Route excat path="/order" component={Order} />
 
             <Route exact path="/" component={Home} />
           </Switch>
