@@ -36,11 +36,12 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 3001);
   res.json({ 
-    message: err.message,
+    message: err.message,   
     error: err,
-  }); 
-}); 
+  });   
+});  
 
 app.listen(process.env.PORT || 3001, () => {
   console.log("go to http://localhost:3000/products to see the products");
 });
+ 

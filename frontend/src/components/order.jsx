@@ -4,7 +4,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import "./crudProduct.css";
 import Basket from "../components/basket";
-
+import Footer from "../components/footer";
 
 export default class Order extends Component {
   constructor(props) {
@@ -98,7 +98,7 @@ export default class Order extends Component {
     const { cartItems } = this.props;
     return (
       <>
-        <Snackbar
+        {/* <Snackbar
           anchorOrigin={{ vertical: "center", horizontal: "center" }}
           open={this.state.snackbaropen}
           autoHideDuration={3000}
@@ -114,7 +114,7 @@ export default class Order extends Component {
               x
             </IconButton>,
           ]}
-        />
+        /> */}
         <div className="container">
           <div
             {...this.props}
@@ -211,6 +211,7 @@ export default class Order extends Component {
             </div>
           </div>
         </div>
+        <Footer/>
       </> 
     );
   }
