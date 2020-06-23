@@ -8,7 +8,7 @@ import {
   Image,
   Container,
   ButtonToolbar,
-  Table, 
+  Table,
 } from "react-bootstrap";
 import Basket from "../components/basket";
 import "./product.css";
@@ -70,9 +70,11 @@ class DetailPage extends Component {
                 cartItems={this.state.cartItems}
                 handleRemoveFromCart={this.handleRemoveFromCart}
               />
-                 <Button >    
-                <NavLink to="/order" type="button" >Proceed to Payment</NavLink>
-                </Button>
+              <Button>
+                <NavLink to="/order" type="button" className="btn-customBtn">
+                  Proceed to Payment
+                </NavLink>
+              </Button>
             </div>
 
             {this.state.products.map((product) => (

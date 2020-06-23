@@ -17,7 +17,6 @@ export default class Order extends Component {
       ordernumber: "",
       product_id: "",
       cartItems: [],
-      
     };
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
@@ -48,9 +47,7 @@ export default class Order extends Component {
           this.setState({ snackbaropen: true, snackbarmsg: "failed" });
         }
       );
- 
   };
-
 
   myChangeHandler = (event) => {
     event.preventDefault();
@@ -115,18 +112,18 @@ export default class Order extends Component {
             </IconButton>,
           ]}
         /> */}
-        <div className="container">
+        <div className="container container-order">
           <div
             {...this.props}
             size="lg"
             aria-labellebdy="contained-modal-title-vcenter"
             centered
           ></div>
-          <div closeButton>
-            <div id="contained-modal-title-vcenter">Shipping Address</div>
-          </div>
-          <div className="row">
-            <div className="col-md-8">
+          <div closeButton></div>
+          <h2 id="check-title">Checkout</h2>
+
+          <div className="row check-row">
+            <div className="col-md-6">
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   Full Name:{" "}
@@ -136,7 +133,7 @@ export default class Order extends Component {
                     name="name"
                     value={this.state.name}
                     className="form-control"
-                    placeholder="Full Name"
+                    // placeholder="Full Name"
                     required={true}
                   />
                 </div>
@@ -147,7 +144,7 @@ export default class Order extends Component {
                     onChange={this.myChangeHandler}
                     name="address"
                     className="form-control"
-                    placeholder="Address"
+                    // placeholder="Address"
                     required={true}
                   />
                 </div>
@@ -159,7 +156,7 @@ export default class Order extends Component {
                     onChange={this.myChangeHandler}
                     name="zip"
                     className="form-control"
-                    placeholder="Zip Code"
+                    // placeholder="Zip Code"
                     required={true}
                   />
                 </div>
@@ -171,16 +168,16 @@ export default class Order extends Component {
                     onChange={this.myChangeHandler}
                     name="city"
                     className="form-control"
-                    placeholder="City"
+                    // placeholder="City"
                     required={true}
                   />
                 </div>
-                <div className="form-group">
-                  <h3>Shipping Method</h3>
+                <div className="form-group check-text">
+                  <h2>Shipping Method</h2>
                   <p> Complimentary Express Delivery signature</p>
                 </div>
-                <div className="form-group">
-                  <h3>Gift Message(optional)</h3>
+                <div className="form-group check-text">
+                  <h2>Gift Message(optional)</h2>
 
                   <input
                     type="text"
@@ -202,8 +199,8 @@ export default class Order extends Component {
                 </button>
               </form>
             </div>
-            <div className="col-md-4">
-              <h3>Order Summary</h3>
+            <div className="col-md-6 check-text">
+              <h2>Order Summary</h2>
               <Basket
                 cartItems={this.state.cartItems}
                 handleRemoveFromCart={this.handleRemoveFromCart}
@@ -211,8 +208,8 @@ export default class Order extends Component {
             </div>
           </div>
         </div>
-        <Footer/>
-      </> 
+        <Footer />
+      </>
     );
   }
 }

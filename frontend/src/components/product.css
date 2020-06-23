@@ -91,7 +91,44 @@ img.card-img-top {
   cursor: pointer;
   padding-left: 10px;
 }
-.itemImg{
+.btn-primary {
+  border: 1px solid #2997ff !important;
+  border-radius: 0px !important;
+  padding: 5px 5px;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  background-color: #2997ff !important;
+  color: #fff !important;
+}
+h2#check-title {
+  text-align: left;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 24px;
+  padding: 20px 0px;
+  text-transform: uppercase;
+}
+.check-text h2 {
+  text-align: left;
+  font-family: "Open Sans", "Century Gothic", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+.container-order {
+  width: 85%;
+  margin-bottom: 50px;
+}
+.check-row {
+  text-align: left;
+}
+.check-row .form-control {
+  margin: 0;
+}
+.alert-info {
+  color: #000;
+  background-color: #f5f5f5;
+  border-color: #f5f5f5;
+  border-radius: 0;
+}
+.itemImg {
   height: 50px;
 }
 a:hover.delLink {
